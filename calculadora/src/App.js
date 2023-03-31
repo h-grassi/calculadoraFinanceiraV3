@@ -1,30 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import Navheader from './Navheader';
+import Componentes from './Componentes';
+
 
 function App() {
    const [abaOpcao, setAba] = useState("home");
-   let renderizaAba;
-   if(abaOpcao === 'home'){
-      renderizaAba = '';
-   }else if (abaOpcao ==='livros'){
+   const componenteSelecionado = Componentes.find(
+      opcao => opcao.valor ===abaOpcao
+   )
 
-   }else if (abaOpcao ==='calculadora'){
-      
-   }else if (abaOpcao ==='sobre'){
-      
-   }
    return (
       <>
-         <Navheader />
+         <Navheader setAba = {setAba}/>
          <div class="container-sm text-center">
-            <h1> Título principal</h1>
-            <p>ppp</p>
-            <h2>titulo secundário</h2>
-            <p>ppp</p>
+         {componenteSelecionado && componenteSelecionado.componentes}
          </div>
       </>
    )
-} export default App
+} export default App;

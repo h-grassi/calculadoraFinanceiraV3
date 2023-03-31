@@ -1,16 +1,17 @@
-const Navheader = () => {
+import Componentes from "../Componentes";
+const Navheader = ({setAba}) => {
    return (
       <>
          <nav className="navbar navbar-expand-sm">
             <div className="container-fluid">
-               <h3 className="navbar-text text-center">Investidor da sua irmã</h3>
-               <button className="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#navresponsiva" 
-                        aria-controls="navresponsiva" 
-                        aria-expanded="false" 
-                        aria-label="Toggle navigation">
+               <h3 className="navbar-text">Preciso de um nome</h3>
+               <button className="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navresponsiva"
+                  aria-controls="navresponsiva"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                </button>
             </div>
@@ -19,23 +20,21 @@ const Navheader = () => {
          <nav className="navbar navbar-expand-sm bg-body-primary border p-0 m-0">
             <div className="container-fluid">
                <div className="collapse navbar-collapse text-sm" id="navresponsiva">
-                  <a className="navbar-brand t" href="#">Menu</a>
-                  <ul className="navbar-nav p-0 list-group list-group-flush">
-                     <li className="nav-item list-group-item p-0 m-0">
-                        <a className="nav-link" aria-current="page" href="#">Home</a>
-                     </li>
-                     <li className="nav-item list-group-item p-0 m-0">
-                        <a className="nav-link" href="#">Calculadoras</a>
-                     </li>
-                     <li className="nav-item list-group-item p-0 m-0">
-                        <a className="nav-link">Livros</a>
-                     </li>
-                     <li className="nav-item list-group-item p-0 m-0">
-                        <a className="nav-link">Artigos</a>
-                     </li>
-                     <li className="nav-item list-group-item p-0 m-0">
-                        <a className="nav-link">Conceitos</a>
-                     </li>
+                  <ul className="navbar-nav p-0 list-group list-group-flush ">
+                     {Componentes.map(opcao =>(
+                        <li key={opcao.valor} className={`nav-item p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
+                           <a className="nav-link" data-bs-toggle={`${opcao.dropdown ? 'dropdown' : ''}`} onClick={()=> setAba(opcao.valor)}> {opcao.label}</a>
+                           {opcao.dropdown &&(
+                              <ul className="dropdown-menu" data-bs-toggle="dropdown">
+                                 {opcao.dropdown.itens.map(submenu => (
+                                    <li key={submenu.valor}>
+                                       <a className="dropdown-item">{submenu.label}</a>
+                                    </li>
+                                 ))}
+                              </ul>
+                           )}
+                        </li>
+                     ))}
                   </ul>
                </div>
             </div>
