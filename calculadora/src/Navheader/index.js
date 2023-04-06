@@ -1,4 +1,4 @@
-import Componentes from "../Componentes";
+import ComponentesControle from "../ComponentesControle";
 const Navheader = ({setAba}) => {
    return (
       <>
@@ -21,7 +21,7 @@ const Navheader = ({setAba}) => {
             <div className="container-fluid">
                <div className="collapse navbar-collapse text-sm" id="navresponsiva">
                   <ul className="navbar-nav p-0 list-group list-group-flush ">
-                     {Componentes.map(opcao =>(
+                     {ComponentesControle.map(opcao =>(
                         <li key={opcao.valor} className={`nav-item p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
                            <a className="nav-link" data-bs-toggle={`${opcao.dropdown ? 'dropdown' : ''}`} onClick={()=> setAba(opcao.valor)}> {opcao.label}</a>
                            {opcao.dropdown &&(
