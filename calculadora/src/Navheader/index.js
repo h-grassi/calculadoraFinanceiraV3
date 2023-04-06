@@ -2,9 +2,9 @@ import ComponentesControle from "../ComponentesControle";
 const Navheader = ({setAba}) => {
    return (
       <>
-         <nav className="navbar navbar-expand-sm">
+         <nav className="navbar navbar-expand-sm bg-success bg-opacity-75">
             <div className="container-fluid">
-               <h3 className="navbar-text">Preciso de um nome</h3>
+               <h3 className="navbar-text text-white ">Preciso de um nome</h3>
                <button className="navbar-toggler"
                   type="button"
                   data-bs-toggle="collapse"
@@ -17,13 +17,13 @@ const Navheader = ({setAba}) => {
             </div>
          </nav>
 
-         <nav className="navbar navbar-expand-sm bg-body-primary border p-0 m-0">
+         <nav className="navbar navbar-expand-sm bg-success bg-opacity-50 border p-0 m-0">
             <div className="container-fluid">
                <div className="collapse navbar-collapse text-sm" id="navresponsiva">
                   <ul className="navbar-nav p-0 list-group list-group-flush ">
                      {ComponentesControle.map(opcao =>(
                         <li key={opcao.valor} className={`nav-item p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
-                           <a className="nav-link" data-bs-toggle={`${opcao.dropdown ? 'dropdown' : ''}`} onClick={()=> setAba(opcao.valor)}> {opcao.label}</a>
+                           <a className="nav-link" data-bs-toggle={`${opcao.dropdown ? 'dropdown' : ''}`} onClick={()=> setAba(opcao.valor)}> opcao.label}</a>
                            {opcao.dropdown &&(
                               <ul className="dropdown-menu" data-bs-toggle="dropdown">
                                  {opcao.dropdown.itens.map(submenu => (

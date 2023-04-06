@@ -1,7 +1,7 @@
 const RendaFixa = () => {
    return (
       <>
-         <h1 className = "m-4 text-center">Renda Fixa</h1>
+         <h1 className="m-4 text-center">Renda Fixa</h1>
          <p className="lead">Introdução Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>
 
          <div className="container text-center">
@@ -19,10 +19,12 @@ const RendaFixa = () => {
                   <p>cita os ativos e breve explicação.</p>
                   <table className="table table-striped table-bordered">
                      <thead>
-                        <th>Ativo</th>
-                        <th>FGC</th>
-                        <th>IR</th>
-                        <th>Credor</th>
+                        <tr>
+                           <th>Ativo</th>
+                           <th>FGC</th>
+                           <th>IR</th>
+                           <th>Credor</th>
+                        </tr>
                      </thead>
                      <tbody className="table-group-divider">
                         <tr>
@@ -65,7 +67,7 @@ const RendaFixa = () => {
                   </table>
                </div>
                <div className="col-sm border">
-                  <p>coluna</p>               
+                  coluna 3
                </div>
             </div>
          </div>

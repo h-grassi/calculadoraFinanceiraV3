@@ -1,10 +1,10 @@
 import Artigos from "../Componentes/Artigos"
 import Home from "../Componentes/Home"
 import Livros from "../Componentes/Livros";
-import Conceitos from "../Componentes/Conceitos"
 import ConverteJuros from "../Componentes/Calculadoras/ConverteJuros";
 import SimuladorJurosCompostos from "../Componentes/Calculadoras/SimuladorJurosCompostos";
 import ValorJusto from "../Componentes/Calculadoras/ValorJusto";
+import RendaFixa from "../Componentes/RendaFixa"
 
 const ComponentesControle = [
    {valor:"home", label:"Home", componentes:<Home/>},
@@ -20,6 +20,6 @@ const ComponentesControle = [
    },
    {valor:"artigos", label:"Artigos", componentes:<Artigos/>},
    {valor:"livros", label:"Livros", componentes: <Livros/>},
-   {valor:"conceitos", label:"Conceitos", componentes: <Conceitos/>}
+   {valor:"rendaFixa", label:"Renda Fixa", componentes: <RendaFixa/>}
 ]
 export default ComponentesControle;
