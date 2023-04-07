@@ -3,12 +3,12 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import Navheader from './Navheader';
-import Componentes from './Componentes';
-
+import ComponentesControle from './ComponentesControle';
+import Footer from './Footer';
 
 function App() {
    const [abaOpcao, setAba] = useState("home");
-   const componenteSelecionado = Componentes.find(
+   const componenteSelecionado = ComponentesControle.find(
       opcao => opcao.valor ===abaOpcao
    )
 
@@ -18,6 +18,7 @@ function App() {
          <div class="container-sm text-center">
          {componenteSelecionado && componenteSelecionado.componentes}
          </div>
+         <Footer/>
       </>
    )
 } export default App;
