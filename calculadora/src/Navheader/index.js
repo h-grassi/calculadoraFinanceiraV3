@@ -23,12 +23,16 @@ const Navheader = ({setAba}) => {
                   <ul className="navbar-nav p-0 list-group list-group-flush ">
                      {ComponentesControle.map(opcao =>(
                         <li key={opcao.valor} className={`nav-item p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
-                           <a className="nav-link" data-bs-toggle={`${opcao.dropdown ? 'dropdown' : ''}`} onClick={()=> setAba(opcao.valor)}> {opcao.label}</a>
+                           <a className="nav-link" 
+                              data-bs-toggle={`${opcao.dropdown ? 'dropdown' : ''}`} 
+                              onClick={opcao.dropdown ? (e) => e.stopPropagation() :()=> setAba(opcao.valor)}> 
+                              {opcao.label}
+                           </a>
                            {opcao.dropdown &&(
-                              <ul className="dropdown-menu" data-bs-toggle="dropdown">
+                              <ul className="dropdown-menu border-success" data-bs-toggle="dropdown">
                                  {opcao.dropdown.itens.map(submenu => (
                                     <li key={submenu.valor}>
-                                       <a className="dropdown-item">{submenu.label}</a>
+                                       <button className="btn btn-outline-success dropdown-item">{submenu.label}</button>
                                     </li>
                                  ))}
                               </ul>
