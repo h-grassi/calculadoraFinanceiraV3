@@ -8,15 +8,19 @@ import Footer from './Footer';
 
 function App() {
    const [abaOpcao, setAba] = useState("home");
-   const componenteSelecionado = ComponentesControle.find(
-      opcao => opcao.valor ===abaOpcao
+   const componenteSelecionado =  ComponentesControle.find(
+         opcao => opcao.valor === abaOpcao
    )
-
+   const itens = ComponentesControle.flatMap(opcao => opcao.itens || []);
+   const componenteDropdown = itens.find(
+      item => item.valor === abaOpcao
+   )
    return (
       <>
          <Navheader setAba = {setAba}/>
          <div class="container-sm text-center">
          {componenteSelecionado && componenteSelecionado.componentes}
+         {componenteDropdown && componenteDropdown.componentes} 
          </div>
          <Footer/>
       </>

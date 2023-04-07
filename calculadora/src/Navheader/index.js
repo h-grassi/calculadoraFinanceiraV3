@@ -25,14 +25,15 @@ const Navheader = ({setAba}) => {
                         <li key={opcao.valor} className={`nav-item p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
                            <a className="nav-link" 
                               data-bs-toggle={`${opcao.dropdown ? 'dropdown' : ''}`} 
-                              onClick={opcao.dropdown ? (e) => e.stopPropagation() :()=> setAba(opcao.valor)}> 
+                              onClick={opcao.dropdown ? (e) => e.stopPropagation():()=> setAba(opcao.valor)}> 
                               {opcao.label}
                            </a>
                            {opcao.dropdown &&(
                               <ul className="dropdown-menu border-success" data-bs-toggle="dropdown">
-                                 {opcao.dropdown.itens.map(submenu => (
+                                 {opcao.itens.map(submenu => (
                                     <li key={submenu.valor}>
-                                       <button className="btn btn-outline-success dropdown-item">{submenu.label}</button>
+                                       <button className="btn btn-outline-success dropdown-item"
+                                                onClick={() => setAba(submenu.valor)}>{submenu.label}</button>
                                     </li>
                                  ))}
                               </ul>
@@ -45,5 +46,6 @@ const Navheader = ({setAba}) => {
          </nav>
       </>
    )
+
 }
 export default Navheader;

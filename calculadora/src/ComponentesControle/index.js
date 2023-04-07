@@ -10,16 +10,17 @@ const ComponentesControle = [
    {valor:"home", label:"Home", componentes:<Home/>},
    {valor: "calculadoras", 
     label:"Calculadoras", 
-    dropdown:{
+    dropdown: true,
       itens:[
          {valor: "converteJuros", label:"Conversor de Juros", componentes:<ConverteJuros/>},
          {valor: "simuladorJurosCompostos", label: "Simulador de Juros Compostos", componentes:<SimuladorJurosCompostos/>},
          {valor: "valorJusto", label:"Cálculo do Valor Justo", componentes: <ValorJusto/>}
       ]
-    }
+   
    },
    {valor:"artigos", label:"Artigos", componentes:<Artigos/>},
    {valor:"livros", label:"Livros", componentes: <Livros/>},
    {valor:"rendaFixa", label:"Renda Fixa", componentes: <RendaFixa/>}
+
 ]
 export default ComponentesControle;
