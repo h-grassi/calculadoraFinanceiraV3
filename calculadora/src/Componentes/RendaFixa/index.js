@@ -4,7 +4,7 @@ const RendaFixa = () => {
          <h1 className="m-4 text-center">Renda Fixa</h1>
          <p className="lead">Introdução Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem</p>
 
-         <div className="container text-center">
+         <div className="text-center">
             <div className="row">
                <div className="col-sm border">
                   <p>coluna</p>

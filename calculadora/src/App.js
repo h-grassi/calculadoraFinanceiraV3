@@ -18,9 +18,9 @@ function App() {
    return (
       <>
          <Navheader setAba = {setAba}/>
-         <div class="container-sm text-center">
-         {componenteSelecionado && componenteSelecionado.componentes}
-         {componenteDropdown && componenteDropdown.componentes} 
+         <div className="mx-3 text-center">
+            {componenteSelecionado && componenteSelecionado.componentes}
+            {componenteDropdown && componenteDropdown.componentes} 
          </div>
          <Footer/>
       </>
