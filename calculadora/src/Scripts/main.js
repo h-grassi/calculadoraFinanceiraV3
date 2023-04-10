@@ -1,47 +1,47 @@
 /* calculadoras*/
 /*ConverteJuros*/
 function efetuarConversao(operacao){
-  
-  
-
   if(operacao ==="1"){
-    const juroAno = Number((document.querySelector('#tAno').value));
+    const juroAno = Number(document.querySelector('#tAno').value);
     const card = document.getElementById("card1");
     const anoPdia =  conversaoTaxas(juroAno,"A","D");
     const anoPmes =  conversaoTaxas(juroAno,"A","M");
 
-    const formataAnoPdia = "Juros diários: " + anoPdia.toFixed(2).replace('.',',') +"%";
-    const formataAnoPMes = "Juros Mensais: " +anoPmes.toFixed(2).replace('.',',') +"%";
+    const formataAnoPdia = "Juros diários: " + anoPdia.toFixed(4).replace('.',',') +"%";
+    const formataAnoPMes = "Juros Mensais: " +anoPmes.toFixed(3).replace('.',',') +"%";
 
     addHTML(card, "p", "peracao1", formataAnoPMes + "<br>" + formataAnoPdia);
   }else if(operacao === "2"){
-    const juroMes = Number((document.querySelector('#tMes').value));
+    const juroMes = Number(document.querySelector('#tMes').value);
     const card = document.getElementById("card2");
 
     const mesPano = conversaoTaxas(juroMes,"M","A");
     const mesPdia = conversaoTaxas(juroMes,"M","D");
 
     const formataMesPano = "Juros anuais: "+ mesPano.toFixed(2).replace('.',',') +"%";
-    const formataMesPdia = "Juros diários: "+ mesPdia.toFixed(2).replace('.',',') +"%";
+    const formataMesPdia = "Juros diários: "+ mesPdia.toFixed(4).replace('.',',') +"%";
 
     addHTML(card,"p","operacao2", formataMesPano + "<br>" + formataMesPdia)
   }else{
-    const juroDia = Number((document.querySelector('#tDia').value));
+    const juroDia = Number(document.querySelector('#tDia').value);
     const card = document.getElementById("card3");
 
     const diaPano = conversaoTaxas(juroDia,"D","A");
     const diaPMes = conversaoTaxas(juroDia,"D","M");
 
     const formataDiaPAno = "Juros Anuais: "+ diaPano.toFixed(2).replace('.',',') +"%";
-    const formataDiaPMes = "Juros mensais: "+ diaPMes.toFixed(2).replace('.',',') +"%";
+    const formataDiaPMes = "Juros mensais: "+ diaPMes.toFixed(3).replace('.',',') +"%";
 
     addHTML(card, "p","operacao3", formataDiaPAno + "<br>"+ formataDiaPMes)
   }
   
 }
-export default efetuarConversao;
+/*simulador de juros compostos*/
 
-/* funções genéricas*/
+
+export {efetuarConversao};
+
+/* funções genéricas, não são exportadas, apenas usadas nesse arquivo*/
 function conversaoTaxas (taxa, indexInicial, indexFinal){
   /*index é o valor  do qual a taxa se refere,
   a inicial indica qual tipo de taxa do valor passado para a função
