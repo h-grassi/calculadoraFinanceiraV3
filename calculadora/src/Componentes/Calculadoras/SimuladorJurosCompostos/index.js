@@ -1,6 +1,7 @@
 import {Form1, Form2} from "../../../Elementos/Formularios"
+import Modal from "../../../Elementos/Modal";
 import {simularJurosCompostos} from  "../../../Scripts/main.js"
-const SimuladorJurosCompostos = () => {
+const SimuladorJurosCompostos = (abreModal) => {
    return(
       <>
       <h3>Simulador de Juros Compostos</h3>
@@ -29,8 +30,13 @@ const SimuladorJurosCompostos = () => {
                         <label class="form-check-label" for="juroMensal">Juros Mensal</label>
                      </div>
                      <Form1 id="juro" texto="%" label="Taxa de Juros:" style={{width:'50%'}}/>
-                     <button onClick ={() => simularJurosCompostos()} class="btn btn-success align-self-end">Calcular</button>
+                     <button 
+                     id='btnCalcular' 
+                     onClick ={() => simularJurosCompostos()} 
+                     class="btn btn-success align-self-end"
+                     data-bs-toggle='' data-bs-target="#modalErro"> Calcular</button>
                   </div>
+                  <Modal id='modalErro' labelledby='modalErro' titulo='Erro' texto='Tempo e Taxa de Juros não podem estar em branco.'/>
                </div>
             </div>
             <div className="col-sm border">
