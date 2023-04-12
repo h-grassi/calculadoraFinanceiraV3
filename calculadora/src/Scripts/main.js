@@ -1,48 +1,81 @@
 /* calculadoras*/
 /*ConverteJuros*/
-function efetuarConversao(operacao){
-  if(operacao ==="1"){
+function efetuarConversao(operacao) {
+  if (operacao === "1") {
     const juroAno = Number(document.querySelector('#tAno').value);
     const card = document.getElementById("card1");
-    const anoPdia =  conversaoTaxas(juroAno,"A","D");
-    const anoPmes =  conversaoTaxas(juroAno,"A","M");
+    const anoPdia = conversaoTaxas(juroAno, "A", "D");
+    const anoPmes = conversaoTaxas(juroAno, "A", "M");
 
-    const formataAnoPdia = "Juros diários: " + anoPdia.toFixed(4).replace('.',',') +"%";
-    const formataAnoPMes = "Juros Mensais: " +anoPmes.toFixed(3).replace('.',',') +"%";
+    const formataAnoPdia = "Juros diários: " + anoPdia.toFixed(4).replace('.', ',') + "%";
+    const formataAnoPMes = "Juros Mensais: " + anoPmes.toFixed(3).replace('.', ',') + "%";
 
-    addHTML(card, "p", "peracao1", formataAnoPMes + "<br>" + formataAnoPdia);
-  }else if(operacao === "2"){
+    addHTML(card, "p", "operacao1", formataAnoPMes + "<br>" + formataAnoPdia);
+  } else if (operacao === "2") {
     const juroMes = Number(document.querySelector('#tMes').value);
     const card = document.getElementById("card2");
 
-    const mesPano = conversaoTaxas(juroMes,"M","A");
-    const mesPdia = conversaoTaxas(juroMes,"M","D");
+    const mesPano = conversaoTaxas(juroMes, "M", "A");
+    const mesPdia = conversaoTaxas(juroMes, "M", "D");
 
-    const formataMesPano = "Juros anuais: "+ mesPano.toFixed(2).replace('.',',') +"%";
-    const formataMesPdia = "Juros diários: "+ mesPdia.toFixed(4).replace('.',',') +"%";
+    const formataMesPano = "Juros anuais: " + mesPano.toFixed(2).replace('.', ',') + "%";
+    const formataMesPdia = "Juros diários: " + mesPdia.toFixed(4).replace('.', ',') + "%";
 
-    addHTML(card,"p","operacao2", formataMesPano + "<br>" + formataMesPdia)
-  }else{
+    addHTML(card, "p", "operacao2", formataMesPano + "<br>" + formataMesPdia)
+  } else {
     const juroDia = Number(document.querySelector('#tDia').value);
     const card = document.getElementById("card3");
 
-    const diaPano = conversaoTaxas(juroDia,"D","A");
-    const diaPMes = conversaoTaxas(juroDia,"D","M");
+    const diaPano = conversaoTaxas(juroDia, "D", "A");
+    const diaPMes = conversaoTaxas(juroDia, "D", "M");
 
-    const formataDiaPAno = "Juros Anuais: "+ diaPano.toFixed(2).replace('.',',') +"%";
-    const formataDiaPMes = "Juros mensais: "+ diaPMes.toFixed(3).replace('.',',') +"%";
+    const formataDiaPAno = "Juros Anuais: " + diaPano.toFixed(2).replace('.', ',') + "%";
+    const formataDiaPMes = "Juros mensais: " + diaPMes.toFixed(3).replace('.', ',') + "%";
 
-    addHTML(card, "p","operacao3", formataDiaPAno + "<br>"+ formataDiaPMes)
+    addHTML(card, "p", "operacao3", formataDiaPAno + "<br>" + formataDiaPMes)
   }
-  
+
 }
 /*simulador de juros compostos*/
+function simularJurosCompostos(){
+  const vlInicial = Number(document.getElementById("vlInicial").value);
+  const vlMes = Number(document.getElementById("vlMes").value);
+  const tMes = Number((document.getElementById("tAnos").value)*12);
+  const taxaJuros = Number((document.getElementById("juro").value));
+  let parte1 = 0;
+  let parte2 = 0;
+ /* if(tMes === 0 || taxaJuros === 0){
+    alert("Tempo e taxa de juros devem ser preenchidos.")
+  }*/
+  if(document.getElementById("juroAnual").checked === true){
+    const conversaoTempo = (Math.pow((1 + taxaJuros/100), (1 / 12)) - 1);
+    parte1 = vlInicial * (Math.pow(1 + (taxaJuros/100), tMes / 12));
+    parte2 = vlMes * ((Math.pow((1 + conversaoTempo), tMes) - 1) / conversaoTempo);
+    
+  }else if(document.getElementById("juroMensal").checked === true){
+    parte1 = vlInicial * (Math.pow(1 + (taxaJuros/100), tMes));
+    parte2 = vlMes * ((Math.pow((1 + taxaJuros/100), tMes) - 1) / (taxaJuros/100));
+    c
+  }
+  else(console.log("ERRO"))
+  const totalInvestido = vlInicial + (vlMes* tMes);
+  const totalInvestidoFormat = totalInvestido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
+  const rendimentoTotal = parte1 + parte2;
+  const rendimentoTotalFormt = rendimentoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-export {efetuarConversao};
+  const totalJuros = rendimentoTotal - totalInvestido;
+  const totalJurosFormt = totalJuros.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-/* funções genéricas, não são exportadas, apenas usadas nesse arquivo*/
-function conversaoTaxas (taxa, indexInicial, indexFinal){
+  addHTML(card, "p", "totalInvest", "Valor aportado: " + "<b>"+ totalInvestidoFormat +"</b>")
+  addHTML(card, "p", "totalFinal", "Valor final: " + "<b>"+ rendimentoTotalFormt +"</b>")
+  addHTML(card, "p", "totalJuros", "Valor final de juros: " + "<b>"+ totalJurosFormt +"</b>")
+}
+
+export { efetuarConversao, simularJurosCompostos};
+
+/* funções genéricas, não são exportadas, apenas usadas neste arquivo*/
+function conversaoTaxas(taxa, indexInicial, indexFinal) {
   /*index é o valor  do qual a taxa se refere,
   a inicial indica qual tipo de taxa do valor passado para a função
   a final indica qual o tipo de taxa será retornada da função
@@ -51,11 +84,11 @@ function conversaoTaxas (taxa, indexInicial, indexFinal){
   "D" taxa diária*/
   const vlTaxa = Number(taxa);
   const expoentes = {
-    "A":{"M": 1/12, "D": 1/360},
-    "M":{"A":12,"D":1/30},
-    "D":{"A":365,"M": 30}
+    "A": { "M": 1 / 12, "D": 1 / 360 },
+    "M": { "A": 12, "D": 1 / 30 },
+    "D": { "A": 365, "M": 30 }
   };
-  if(indexInicial === indexFinal){
+  if (indexInicial === indexFinal) {
     return vlTaxa;
   }
 
@@ -64,9 +97,9 @@ function conversaoTaxas (taxa, indexInicial, indexFinal){
   return conversaoJuro;
 }
 
-function addHTML(tagPai, tagFilho, idNome, tagConteudo){ 
+function addHTML(tagPai, tagFilho, idNome, tagConteudo) {
   //tagPai necessecita de document.getelementByiD
-  
+
   const novaTag = document.createElement(tagFilho);
   novaTag.id = idNome;
   tagPai.appendChild(novaTag);
@@ -75,3 +108,4 @@ function addHTML(tagPai, tagFilho, idNome, tagConteudo){
   adcionaConteudo.innerHTML = tagConteudo;
 
 }
+
