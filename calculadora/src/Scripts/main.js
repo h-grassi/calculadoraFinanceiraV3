@@ -47,7 +47,7 @@ function simularJurosCompostos() {
   if (tMes === 0 || taxaJuros === 0) {
     /*const abreModal = document.getElementById('btnCalcular');
     abreModal.dataset.bsToggle = 'modal'*/
-    alert(erro)
+    alert('erro')
   } else {
     if (document.getElementById("juroAnual").checked === true) {
       const conversaoTempo = (Math.pow((1 + taxaJuros / 100), (1 / 12)) - 1);
