@@ -37,42 +37,45 @@ function efetuarConversao(operacao) {
 
 }
 /*simulador de juros compostos*/
-function simularJurosCompostos(){
+function simularJurosCompostos() {
   const vlInicial = Number(document.getElementById("vlInicial").value);
   const vlMes = Number(document.getElementById("vlMes").value);
-  const tMes = Number((document.getElementById("tAnos").value)*12);
+  const tMes = Number((document.getElementById("tAnos").value) * 12);
   const taxaJuros = Number((document.getElementById("juro").value));
   let parte1 = 0;
   let parte2 = 0;
- /* if(tMes === 0 || taxaJuros === 0){
-    alert("Tempo e taxa de juros devem ser preenchidos.")
-  }*/
-  if(document.getElementById("juroAnual").checked === true){
-    const conversaoTempo = (Math.pow((1 + taxaJuros/100), (1 / 12)) - 1);
-    parte1 = vlInicial * (Math.pow(1 + (taxaJuros/100), tMes / 12));
-    parte2 = vlMes * ((Math.pow((1 + conversaoTempo), tMes) - 1) / conversaoTempo);
-    
-  }else if(document.getElementById("juroMensal").checked === true){
-    parte1 = vlInicial * (Math.pow(1 + (taxaJuros/100), tMes));
-    parte2 = vlMes * ((Math.pow((1 + taxaJuros/100), tMes) - 1) / (taxaJuros/100));
-    c
+  if (tMes === 0 || taxaJuros === 0) {
+    /*const abreModal = document.getElementById('btnCalcular');
+    abreModal.dataset.bsToggle = 'modal'*/
+    alert(erro)
+  } else {
+    if (document.getElementById("juroAnual").checked === true) {
+      const conversaoTempo = (Math.pow((1 + taxaJuros / 100), (1 / 12)) - 1);
+      parte1 = vlInicial * (Math.pow(1 + (taxaJuros / 100), tMes / 12));
+      parte2 = vlMes * ((Math.pow((1 + conversaoTempo), tMes) - 1) / conversaoTempo);
+
+    } else if (document.getElementById("juroMensal").checked === true) {
+      parte1 = vlInicial * (Math.pow(1 + (taxaJuros / 100), tMes));
+      parte2 = vlMes * ((Math.pow((1 + taxaJuros / 100), tMes) - 1) / (taxaJuros / 100));
+    }
+    const totalInvestido = vlInicial + (vlMes * tMes);
+    const totalInvestidoFormat = totalInvestido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    const rendimentoTotal = parte1 + parte2;
+    const rendimentoTotalFormt = rendimentoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    const totalJuros = rendimentoTotal - totalInvestido;
+    const totalJurosFormt = totalJuros.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    const card = document.getElementById("card")
+
+    addHTML(card, "p", "totalInvest", "Valor aportado: " + "<b>" + totalInvestidoFormat + "</b>")
+    addHTML(card, "p", "totalFinal", "Valor final: " + "<b>" + rendimentoTotalFormt + "</b>")
+    addHTML(card, "p", "totalJuros", "Valor final de juros: " + "<b>" + totalJurosFormt + "</b>")
   }
-  else(console.log("ERRO"))
-  const totalInvestido = vlInicial + (vlMes* tMes);
-  const totalInvestidoFormat = totalInvestido.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-  const rendimentoTotal = parte1 + parte2;
-  const rendimentoTotalFormt = rendimentoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-  const totalJuros = rendimentoTotal - totalInvestido;
-  const totalJurosFormt = totalJuros.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-  addHTML(card, "p", "totalInvest", "Valor aportado: " + "<b>"+ totalInvestidoFormat +"</b>")
-  addHTML(card, "p", "totalFinal", "Valor final: " + "<b>"+ rendimentoTotalFormt +"</b>")
-  addHTML(card, "p", "totalJuros", "Valor final de juros: " + "<b>"+ totalJurosFormt +"</b>")
 }
 
-export { efetuarConversao, simularJurosCompostos};
+export { efetuarConversao, simularJurosCompostos };
 
 /* funções genéricas, não são exportadas, apenas usadas neste arquivo*/
 function conversaoTaxas(taxa, indexInicial, indexFinal) {
