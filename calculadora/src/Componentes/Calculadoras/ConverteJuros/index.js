@@ -43,14 +43,14 @@ const ConverteJuros = () =>{
                      </div>
                   </div>
                </div>
-               <p>Dica para quando for converter a partir de juros diários é utilizar mais de duas casas decimais para a conversão fazer sentido e ficar mais próxima da realidade.</p>
+               <p>Dica para quando for converter a partir de juros diários ou mensais é utilizar mais de duas casas decimais para a conversão ficar com resultados mais próximos da realidade.</p>
                <h3>Como este cálculo é realizado:</h3>
                <p>(((1+ taxa/100) ^ tempo)- 1)X 100</p>
                <p>Onde a taxa é valor digitado por você e o tempo é a equivalencia de mês para ano.
                   Neste caso temos que um ano é 12 vezes maior que um mês, portando o expoente será 1/12 
                   para transformar a taxa anual para mensal.
                </p>
-               <p>Para ver o poder dos juros compostos aplicado sobre valores acesse nossas outras calculadoras</p>
+               <p>Para ver o poder dos juros compostos aplicado sobre valores acesse nossas outras calculadoras.</p>
             </div>
             <div className="col-sm border">
                coluna 3
