@@ -3,36 +3,31 @@
 function efetuarConversao(operacao) {
   if (operacao === "1") {
     const juroAno = Number(document.querySelector('#tAno').value);
-    const card = document.getElementById("card1");
     const anoPdia = conversaoTaxas(juroAno, "A", "D");
     const anoPmes = conversaoTaxas(juroAno, "A", "M");
 
     const formataAnoPdia = "Juros diários: " + anoPdia.toFixed(4).replace('.', ',') + "%";
     const formataAnoPMes = "Juros Mensais: " + anoPmes.toFixed(3).replace('.', ',') + "%";
 
-    addHTML(card, "p", "operacao1", formataAnoPMes + "<br>" + formataAnoPdia);
+    addHTML("card1", "p", "operacao1", formataAnoPMes + "<br>" + formataAnoPdia);
   } else if (operacao === "2") {
     const juroMes = Number(document.querySelector('#tMes').value);
-    const card = document.getElementById("card2");
-
     const mesPano = conversaoTaxas(juroMes, "M", "A");
     const mesPdia = conversaoTaxas(juroMes, "M", "D");
 
     const formataMesPano = "Juros anuais: " + mesPano.toFixed(2).replace('.', ',') + "%";
     const formataMesPdia = "Juros diários: " + mesPdia.toFixed(4).replace('.', ',') + "%";
 
-    addHTML(card, "p", "operacao2", formataMesPano + "<br>" + formataMesPdia)
+    addHTML("card2", "p", "operacao2", formataMesPano + "<br>" + formataMesPdia)
   } else {
     const juroDia = Number(document.querySelector('#tDia').value);
-    const card = document.getElementById("card3");
-
     const diaPano = conversaoTaxas(juroDia, "D", "A");
     const diaPMes = conversaoTaxas(juroDia, "D", "M");
 
     const formataDiaPAno = "Juros Anuais: " + diaPano.toFixed(2).replace('.', ',') + "%";
     const formataDiaPMes = "Juros mensais: " + diaPMes.toFixed(3).replace('.', ',') + "%";
 
-    addHTML(card, "p", "operacao3", formataDiaPAno + "<br>" + formataDiaPMes)
+    addHTML("card3", "p", "operacao3", formataDiaPAno + "<br>" + formataDiaPMes)
   }
 
 }
@@ -45,7 +40,12 @@ function simularJurosCompostos() {
   let parte1 = 0;
   let parte2 = 0;
   if (tMes === 0 || taxaJuros === 0) {
-   console.log("erro");
+    const removeTag = document.getElementById("resultados");
+    if(removeTag){
+      removeTag.remove();
+    }
+    addHTML("card", "p", "erro", "Tempo e Taxa de Juros não podem estar em branco.");
+
   } else {
     if (document.getElementById("juroAnual").checked === true) {
       const conversaoTempo = (Math.pow((1 + taxaJuros / 100), (1 / 12)) - 1);
@@ -64,12 +64,15 @@ function simularJurosCompostos() {
 
     const totalJuros = rendimentoTotal - totalInvestido;
     const totalJurosFormt = totalJuros.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-    const card = document.getElementById("card")
-
-    addHTML(card, "p", "totalInvest", "Valor aportado: " + "<b>" + totalInvestidoFormat + "</b>")
-    addHTML(card, "p", "totalFinal", "Valor final: " + "<b>" + rendimentoTotalFormt + "</b>")
-    addHTML(card, "p", "totalJuros", "Valor final de juros: " + "<b>" + totalJurosFormt + "</b>")
+    
+    const removeTag = document.getElementById('erro');
+    if (removeTag) {
+      removeTag.remove();
+    }
+      addHTML("card", "div", "resultados",'')
+      addHTML("resultados", "p", "totalInvest", "Valor aportado: <b>" + totalInvestidoFormat + "</b>")
+      addHTML("resultados", "p", "totalFinal", "Valor final: <b>" + rendimentoTotalFormt + "</b>")
+      addHTML("resultados", "p", "totalJuros", "Valor final de juros: <b>" + totalJurosFormt + "</b>")
   }
 }
 
@@ -98,15 +101,15 @@ function conversaoTaxas(taxa, indexInicial, indexFinal) {
   return conversaoJuro;
 }
 
-function addHTML(tagPai, tagFilho, idNome, tagConteudo) {
-  //tagPai necessecita de document.getelementByiD
-
+function addHTML(idTagPai, tagFilho, idNome, tagConteudo) {
+  const TagPai = document.getElementById(idTagPai);
+  if(document.getElementById(idNome) != null){
+    const removeTag = document.getElementById(idNome)
+    removeTag.remove();
+  }
   const novaTag = document.createElement(tagFilho);
   novaTag.id = idNome;
-  tagPai.appendChild(novaTag);
-
+  TagPai.appendChild(novaTag);
   let adcionaConteudo = document.getElementById(idNome)
   adcionaConteudo.innerHTML = tagConteudo;
-
 }
-

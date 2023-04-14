@@ -1,11 +1,10 @@
 import {Form1, Form2} from "../../../Elementos/Formularios"
-import Modal from "../../../Elementos/Modal";
 import {simularJurosCompostos} from  "../../../Scripts/main.js"
-const SimuladorJurosCompostos = (abreModal) => {
+const SimuladorJurosCompostos = () => {
    return(
       <>
       <h3>Simulador de Juros Compostos</h3>
-      <p className="lead">calculadora que simula rendimentos de aplicações a longo prazo</p>
+      <p className="lead">calculadora que simula rendimentos de aplicações a longo prazo.</p>
       <div className="text-center">
          <div className="row">
             <div className="col-sm border">
@@ -33,11 +32,15 @@ const SimuladorJurosCompostos = (abreModal) => {
                      <button 
                      id='btnCalcular' 
                      onClick ={() => simularJurosCompostos()} 
-                     class="btn btn-success align-self-end"
-                     data-bs-toggle='' data-bs-target="#modalErro"> Calcular</button>
+                     class="btn btn-success align-self-end"> Calcular</button>
                   </div>
-                  <Modal id='modalErro' labelledby='modalErro' titulo='Erro' texto='Tempo e Taxa de Juros não podem estar em branco.'/>
                </div>
+               <p>Essa simulação mostra que investir R$ 300,00 não vai mudar sua vida, mas que investir esse valor regularmente muda completamente.
+                  Não só financeiramente, mas sua forma de ver a vida, te motiva a trabalhar para ganhar mais para investir mais e mais rápido viver de renda.
+               </p>
+               <p>
+                  Mas mais importante que isso, te ensina que as melhores coisas da vida se conquista a longo prazo.
+               </p>
             </div>
             <div className="col-sm border">
                coluna 3
