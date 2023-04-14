@@ -45,6 +45,7 @@ function simularJurosCompostos() {
       removeTag.remove();
     }
     addHTML("card", "p", "erro", "Tempo e Taxa de Juros não podem estar em branco.");
+
   } else {
     if (document.getElementById("juroAnual").checked === true) {
       const conversaoTempo = (Math.pow((1 + taxaJuros / 100), (1 / 12)) - 1);
