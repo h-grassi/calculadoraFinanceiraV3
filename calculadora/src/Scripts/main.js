@@ -76,6 +76,8 @@ function simularJurosCompostos() {
   }
 }
 
+/*Calcula CDB*/
+
 export { efetuarConversao, simularJurosCompostos };
 
 /* funções genéricas, não são exportadas, apenas usadas neste arquivo*/

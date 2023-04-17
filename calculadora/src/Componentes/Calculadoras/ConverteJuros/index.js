@@ -3,7 +3,7 @@ import {efetuarConversao} from  "../../../Scripts/main.js"
 const ConverteJuros = () =>{
    return (
    <>
-      <h3>Conversor de Juros</h3>
+      <h2 className="mt-3">Conversor de Juros</h2>
       <p className="lead">calculadora que transforma a taxa de juros com o período de tempo desejado.</p>
       <div className="text-center">
          <div className="row">
