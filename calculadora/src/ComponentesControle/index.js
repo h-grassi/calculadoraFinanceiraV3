@@ -3,6 +3,7 @@ import Home from "../Componentes/Home"
 import Livros from "../Componentes/Livros";
 import ConverteJuros from "../Componentes/Calculadoras/ConverteJuros";
 import SimuladorJurosCompostos from "../Componentes/Calculadoras/SimuladorJurosCompostos";
+import RendimentoCdb from "../Componentes/Calculadoras/RendimentoCdb";
 import ValorJusto from "../Componentes/Calculadoras/ValorJusto";
 import RendaFixa from "../Componentes/RendaFixa"
 
@@ -14,6 +15,7 @@ const ComponentesControle = [
       itens:[
          {valor: "converteJuros", label:"Conversor de Juros", componentes:<ConverteJuros/>},
          {valor: "simuladorJurosCompostos", label: "Simulador de Juros Compostos", componentes:<SimuladorJurosCompostos/>},
+         {valor:"rendimentoCdb", label:"Rendimento CDB", componentes: <RendimentoCdb/>},
          {valor: "valorJusto", label:"Cálculo do Valor Justo", componentes: <ValorJusto/>}
       ]
    

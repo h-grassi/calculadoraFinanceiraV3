@@ -3,7 +3,7 @@ import {simularJurosCompostos} from  "../../../Scripts/main.js"
 const SimuladorJurosCompostos = () => {
    return(
       <>
-      <h3>Simulador de Juros Compostos</h3>
+      <h2 className="mt-3">Simulador de Juros Compostos</h2>
       <p className="lead">calculadora que simula rendimentos de aplicações a longo prazo.</p>
       <div className="text-center">
          <div className="row">
