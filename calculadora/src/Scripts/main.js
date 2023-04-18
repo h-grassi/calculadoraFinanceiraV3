@@ -41,7 +41,7 @@ function simularJurosCompostos() {
   let parte2 = 0;
   if (tMes === 0 || taxaJuros === 0) {
     const removeTag = document.getElementById("resultados");
-    if(removeTag){
+    if (removeTag) {
       removeTag.remove();
     }
     addHTML("card", "p", "erro", "Tempo e Taxa de Juros não podem estar em branco.");
@@ -64,21 +64,66 @@ function simularJurosCompostos() {
 
     const totalJuros = rendimentoTotal - totalInvestido;
     const totalJurosFormt = totalJuros.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    
+
     const removeTag = document.getElementById('erro');
     if (removeTag) {
       removeTag.remove();
     }
-      addHTML("card", "div", "resultados",'')
-      addHTML("resultados", "p", "totalInvest", "Valor aportado: <b>" + totalInvestidoFormat + "</b>")
-      addHTML("resultados", "p", "totalFinal", "Valor final: <b>" + rendimentoTotalFormt + "</b>")
-      addHTML("resultados", "p", "totalJuros", "Valor final de juros: <b>" + totalJurosFormt + "</b>")
+    addHTML("card", "div", "resultados", '')
+    addHTML("resultados", "p", "totalInvest", "Valor aportado: <b>" + totalInvestidoFormat + "</b>")
+    addHTML("resultados", "p", "totalFinal", "Valor final: <b>" + rendimentoTotalFormt + "</b>")
+    addHTML("resultados", "p", "totalJuros", "Valor final de juros: <b>" + totalJurosFormt + "</b>")
   }
 }
 
 /*Calcula CDB*/
+function calculaRendimentoReal() {
 
-export { efetuarConversao, simularJurosCompostos };
+  const VlInvestido = Number(document.getElementById("vlInvestido").value)
+  const vlTaxa = document.getElementById("taxa").value
+
+  const pegaDataInicial = document.getElementById("dataInicial").value;
+  const pegaDataFinal = document.getElementById("dataFinal").value;
+
+  if (pegaDataInicial == 0 || pegaDataFinal == 0 || VlInvestido == 0 || vlTaxa == 0) {
+    alert("preencha os campos!");
+    return 0;
+  } else {
+
+    const dias = calculaDias(pegaDataInicial, pegaDataFinal);
+    let taxaDia = conversaoTaxas(vlTaxa, "A", "D")
+    const taxaFinal = dias.qtdDiasUteis * taxaDia//exibir na tela
+    const tabelaIR = [22.5 / 100, 20 / 100, 17.5 / 100, 15 / 100]
+    let i;
+    switch (true) {
+      case (dias.totalDiasAplicacao <= 180):
+        i = 0;
+        break;
+      case (dias.totalDiasAplicacao <= 360):
+        i = 1;
+        break;
+      case (dias.totalDiasAplicacao <= 720):
+        i = 2;
+        break;
+      default:
+        i = 3;
+        break;
+    }
+    //
+    const rendimentoBruto = VlInvestido * (Math.pow(1 + (taxaDia / 100), dias.qtdDiasUteis));
+    console.log(Math.pow(1 + taxaDia, dias.qtdDiasUteis));
+    const rendimentoLiquido = VlInvestido + (((VlInvestido * taxaFinal) / 100) * (1 - tabelaIR[i]))
+    console.log("rendimento Bruto: ", rendimentoBruto)
+    addHTML("card", "p", "bruto", "Rendimento bruto: <b>" + rendimentoBruto.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) + "</b>")
+    console.log("dias totais:", dias.totalDiasAplicacao)
+    console.log("dias uteis:", dias.qtdDiasUteis);
+    console.log("rendimento bruto por dia:%", taxaDia)
+    console.log("tabela IR:", tabelaIR[i])
+    console.log("rendimento Liquido", rendimentoLiquido)
+  }
+}
+
+export { efetuarConversao, simularJurosCompostos, calculaRendimentoReal };
 
 /* funções genéricas, não são exportadas, apenas usadas neste arquivo*/
 function conversaoTaxas(taxa, indexInicial, indexFinal) {
@@ -105,7 +150,7 @@ function conversaoTaxas(taxa, indexInicial, indexFinal) {
 
 function addHTML(idTagPai, tagFilho, idNome, tagConteudo) {
   const TagPai = document.getElementById(idTagPai);
-  if(document.getElementById(idNome) != null){
+  if (document.getElementById(idNome) != null) {
     const removeTag = document.getElementById(idNome)
     removeTag.remove();
   }
@@ -114,4 +159,55 @@ function addHTML(idTagPai, tagFilho, idNome, tagConteudo) {
   TagPai.appendChild(novaTag);
   let adcionaConteudo = document.getElementById(idNome)
   adcionaConteudo.innerHTML = tagConteudo;
+}
+
+function calculaDias(pegaDataInicial, pegaDataFinal) {
+  //a partir de duas datas retorna os dias úteis e dias totais, 
+  //função precisa ser melhorada
+  //utilizada para calcular rendimento real do cdb
+  let arrayInicial = pegaDataInicial.split("-"); //separa dia mês e ano 
+  let arrayFinal = pegaDataFinal.split("-");
+  //transforma em data e corrige mês
+  const dataInicial = new Date(arrayInicial[0], (arrayInicial[1] - 1), arrayInicial[2])
+  const dataFinal = new Date(arrayFinal[0], (arrayFinal[1] - 1), arrayFinal[2])
+  if (dataInicial >= dataFinal) {
+    alert("Erro! Data final precisa ser maior que a inicial")
+    return 0;
+  } else {
+    const anoInicial = dataInicial.getFullYear()
+    const anoFinal = dataFinal.getFullYear()
+    let anos = [...Array(anoFinal - anoInicial + 1).keys()].map(i => i + anoInicial)
+    let resultado = [];
+    let feriados = [[0, 1], [3, 21], [4, 1], [8, 7], [9, 12], [10, 2], [10, 15], [11, 25]]
+
+    for (let x = 0; x < anos.length; x++) {
+      for (let i = 0; i < feriados.length; i++) {
+        let ano = anos[x];
+        let mes = feriados[i][0];
+        let dia = feriados[i][1];
+        resultado.push(new Date(ano, mes, dia));
+      }
+    }
+    const listaFeriados = resultado.map(date => date.toLocaleDateString())
+    let dias = [];
+    let diaSemana = [];
+    let totalDiasAplicacao = (dataFinal - dataInicial) / (1000 * 60 * 60 * 24); //usado posteriormente para calcular a tabela regressiva do IR
+    let x;
+    for (x = 0; x <= totalDiasAplicacao - 1; x++) {
+      dias.push(new Date(dataInicial.setDate(dataInicial.getDate() + 1)));
+      diaSemana.push(dias[x].getDay());
+    }
+    let listaTotalDias = dias.map(date => date.toLocaleDateString())
+    const listaFinalSemana = []
+    for (x = 0; x < listaTotalDias.length; x++) {
+      if (diaSemana[x] === 0 || diaSemana[x] === 6) {
+        listaFinalSemana.push(listaTotalDias[x])
+      }
+    }
+    listaTotalDias = listaTotalDias.filter(item => !listaFinalSemana.includes(item))// retira os finais de semana da lista
+    const listaDiasUteis = listaTotalDias.filter(item => !listaFeriados.includes(item))//retira feriados fixos
+    const qtdDiasUteis = listaDiasUteis.length
+    return { qtdDiasUteis, totalDiasAplicacao };
+  }
+
 }
