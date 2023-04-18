@@ -6,4 +6,3 @@
 2- `npm start`
 3- `git status` para visualizar arquivos alterados
 4- `git commit m- ` para commitar as mudanças
-5- `git push` para jogar salvar as mudanças
