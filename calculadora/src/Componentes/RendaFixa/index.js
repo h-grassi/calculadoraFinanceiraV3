@@ -3,6 +3,7 @@ import LinkLista from "../../Elementos/LinkLista";
 const RendaFixa = () => {
    const listaProps=[
       {href:"#introducao", label:"Introdução"},
+      {href:"#indexadores", label:"Indexadores"},
       {href:"#fgc", label:"FGC"},
       {href:"#irIof", label:"IR e IOF"},
       {href:"#tesouro", label:"Tesouro Direto"},
@@ -37,7 +38,15 @@ const RendaFixa = () => {
                   </p>
                   <p className="text-start">
                      Os principais ativos que compõe a classe de renda fixa são <b>Tesouro Direto, LCI, LCA, CRI e CRA</b>, entraremos nos detalhes de cada um mais tarde.
+                     Para explicações mais aprofundados sobre esses tópicos visita a página de <b>Artigos</b>.
                   </p>
+                  <h3 id="indexadores">Indexadores</h3>
+                  <h6>Pré-fixado</h6>
+                  <p className="text-start"></p>
+                  <h6>CDI</h6>
+                  <p className="text-start"></p>
+                  <h6>IPCA+</h6>
+                  <p className="text-start"></p>
                   <h3 id="fgc"> FGC, o que é?</h3>
                   <p className="text-start">
                      Fundo Garantidor de Crédito, criado na década de 90, funciona como um seguro para o caso de falência do orgão emissor do titúlo. Caso seu investimento esteja de baixo do guarda-chuva do órgão você pode solicitar
@@ -129,9 +138,23 @@ const RendaFixa = () => {
                      Dessa forma sua rentabilidade vem dos juros pagos por esses produtores ao bancos.
                   </p>
                   <h4 id="cri">CRI</h4>
-                  <p className="text-start"></p>
+                  <p className="text-start">
+                     Certificado de Recebíveis Imobiliários, são como empréstimos, porém as empressas recorrem a securitizadoras para emiti-los.
+                  </p>
+                  <p className="text-start">
+                     Esses títulos estão lastreados em imóveis reais que normalmente servem como garatia em caso de não quitação das dívidas. 
+                     O cenário onde as construtoras precisam destes túitulo é quando por exemplo, fazem uma venda a prazo e necessitam do dinheiro de imediato.
+                  </p>
+                  <p className="text-start">
+                     São operações mais arriscadas que não tem cobertura do FGC e se fosse procura diversificar nesse setor é recomendável estudar sobre fundos imobilirários de papéi,
+                     que são carteiras de CRIs vendidas na bolsa onde o cotista recebe rendimentos mensais liquidos de IR.
+                  </p>
                   <h4 id="cra">CRA</h4>
-                  <p className="text-start"></p>
+                  <p className="text-start">
+                     Certificado de Recebíveis Agricolas, semelhante aos CRIs porém vinculados ao agronegócio mas com as mesmas caracteristicas. 
+                     São emitidos por securitizadoras, não tem incidência de IR e para diversificar sua carteira, em 2022 foram criados os FII AGOS, fundos de investimentos imobiliários
+                     que na maioria dos casos são compostos por CRAs.
+                  </p>
                   <h3 id="comparativo">Comparativo</h3>
                   <div class="container">
                      <div class="row justify-content-center">

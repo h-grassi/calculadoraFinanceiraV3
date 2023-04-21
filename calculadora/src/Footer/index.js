@@ -1,7 +1,7 @@
 const Footer = () => {
    return (
       <>
-         <footer className="navbar bg-dark text-center text-white">
+         <footer className="footer  bg-dark text-center text-white">
             <div className="container justify-content-center pt-4 pb-0">
                <section className="">
                   <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
@@ -28,7 +28,7 @@ const Footer = () => {
                   ><i className="fab fa-github"></i
                   ></a>
                </section>
-               <div className=" p-3">
+               <div className="p-3">
                   © 2023 Copyright
                </div>
             </div>
