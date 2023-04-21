@@ -1,10 +1,11 @@
 import {Form1, Form2} from "../../../Elementos/Formularios"
+import { calculaRendimentoReal } from "../../../Scripts/main";
 
 const rendimentoCdb= () =>{
   return(
     <>
-    <h2 className="mt-3">Rendimento CDB pré-fiaxdo</h2>
-    <p className="lead">calculadora que simula rendimentos de real de um CDB.</p>
+    <h2 className="mt-3">Rendimento Real CDB</h2>
+    <p className="lead">calculadora que simula rendimentos de real de um CDB pré-fixado.</p>
       <div className="text-center">
          <div className="row">
             <div className="col-sm border">
@@ -18,12 +19,13 @@ const rendimentoCdb= () =>{
               <h5>Preencha os campos e calcule:</h5>
               <div class="bg-light card text-center col-md-6 col-sm-12 mx-auto mb-2" id="card"> 
                   <div class="card-body">
-                    <Form2 label="Valor do aporte:" texto="R$" id="vlaporte" style={{width:'50%'}}/>
-                    <Form1 label="Taxa contratada:" texto="%" id="dataFinal" style={{width:'50%'}}/>
+                    <Form2 label="Valor do aporte:" texto="R$" id="vlInvestido" style={{width:'50%'}}/>
+                    <Form1 label="Taxa contratada:" texto="%" id="taxa" style={{width:'50%'}}/>
                     <Form2 label="Data da aplicação:" type="date"  id="dataInicial" style={{width:'50%'}}/>
                     <Form2 label="Data do resgate:" type="date"  id="dataFinal" style={{width:'50%'}}/>
                     <button 
                      id='btnCalcular' 
+                     onClick={()=>calculaRendimentoReal()}
                      class="btn btn-success align-self-end"> Calcular
                     </button>
                   </div> 

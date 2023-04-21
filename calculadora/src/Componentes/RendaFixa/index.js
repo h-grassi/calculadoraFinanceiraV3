@@ -21,25 +21,25 @@ const RendaFixa = () => {
          <div className="text-center">
             <div className="row">
                <div className="col-sm border">
-                  <p>coluna</p>
+                  <p className="text-start">coluna</p>
                </div>
                <div className="col-md-9 col-sm-12">
                   <LinkLista props={listaProps}/>
                   <h3 id="introducao">Introdução</h3>
-                  <p>Ponto de partida ideal para o investidor iniciante e para quem não gosta de tomar risco.
+                  <p className="text-start">Ponto de partida ideal para o investidor iniciante e para quem não gosta de tomar risco.
                      Nesse tipo de investimento existe uma data de vencimento onde, <b>neste dia</b> você receberá exatamente o valor correspondente a taxa contratada,
                      caso contrário seu ativo pode  sofrer marcação a mercado.
                      Essa taxa de juros é na maioria dos casos <b>pré-fixada</b>, atrelada a <b>inflação</b> ou ao <b>CDI</b>. 
                   </p>
-                  <p>
+                  <p className="text-start">
                      Além da marcação a mercado existem outras duas forças que atuam sobre esses ativos, que são o <b>imposto de renda</b>, e o <b>Fundo Garantidor de Crédito</b>,
                      ambos essênciais na hora de escolher onde e como insvestir. O primeiro impacta seu rendimento final e o segundo é um seguro para o caso de o orgão emissor quebrar você não perder o seu dinheiro.
                   </p>
-                  <p>
+                  <p className="text-start">
                      Os principais ativos que compõe a classe de renda fixa são <b>Tesouro Direto, LCI, LCA, CRI e CRA</b>, entraremos nos detalhes de cada um mais tarde.
                   </p>
                   <h3 id="fgc"> FGC, o que é?</h3>
-                  <p>
+                  <p className="text-start">
                      Fundo Garantidor de Crédito, criado na década de 90, funciona como um seguro para o caso de falência do orgão emissor do titúlo. Caso seu investimento esteja de baixo do guarda-chuva do órgão você pode solicitar
                      seu dinheiro de volta. O ressarcimento ocorre da seguinte forma: 
                   </p>
@@ -60,7 +60,7 @@ const RendaFixa = () => {
                   <div class="container">
                      <div class="row justify-content-center">
                         <div class="col-lg-4">
-                           <p>
+                           <p className="text-start">
                                São os dois tributos que incidem sobre os investimentos de renda fixa, porém apenas sobre o rendimento.
                                O IOF é zerado após 30 dias da aplicação (não faz sentido investir por menos que esse tempo), já o IR segue esta <b>tabela regressiva:</b>
                            </p>
@@ -97,19 +97,41 @@ const RendaFixa = () => {
                   </div>
                   <h3>Principais Ativos:</h3>
                   <h4 id="tesouro">Tesouro Direto</h4>
-                  <p>Forma do governo se financiar via emissão de dívida, são os ativos mais seguros do mercado já que em caso de crise
+                  <p className="text-start">Forma do governo se financiar via emissão de dívida, são os ativos mais seguros do mercado já que em caso de crise
                      o Estado é a última instituição a quebrar. Por esse motivo todo mundo deveria começar no mundo dos investimentos por aqui.
                   </p>
                   <h4 id="cdb">CDB</h4>
-                  <p>
+                  <p className="text-start">
                      Certificado de Depósito Bancário, forma mais simples de explicar é dizendo que o jogo virou, dessa vez
-                     você que está emprestando dinheiro para o banco.
+                     você que está emprestando dinheiro para o banco. Principal ponto para ficar atento é a data de vencimento do título para que você
+                     pague a menor alíquota de imposto de renda, as vezes uma taxa de 13% pode ter um rendimento líquido menor do que uma de  12% que tenha o prazo de vencimento mais esticado.
+                     Imposto de Renda é recolhido na fonte, no vencimento do CDB.
+                  </p>
+                  <p className="text-start"> 
+                     Tendem a ser títulos bem acessíveis para pequenos investidores, com valores mínimos de aporte de R$ 1000,00, R$ 5000,00 e dependendo da corretora você consegue encontrar valores mínimos de 
+                     aporte de incríveis R$ 1,00. Essa última opção é otima pra você diversificar sua carteira sem ter muito dinheiro.
                   </p>
                   <h4 id="lci">LCI</h4>
+                  <p className="text-start">
+                     Letra de Crédito Imobiliário, emitidos por bancos e instituições financeiras tem o objetivo de captar recursos para projetos imobiliários.
+                     Não tem incidência de imposto de renda mas títulos devem constar na declaração. Geralmente só possui liquidez no vencimento e ao buscar por títulos verás que quanto maior o prazo de vencimento,
+                     maior será o prêmio (taxa) oferecido.
+                  </p>
+                  <p className="text-start"> 
+                     Outro ponto positivo é que possui cobertura do FGC, ou seja, o melhor dos dois mundos, já que seu dinheiro está segurado até 250 mil e você não paga IR.
+                     A contrapartida é que normalmente as taxas oferecidas são menores que as dos CDBs mas uma comparação justa leva em conta o desconto do IR nos CDBs, sendo assim
+                     rentabilidades tendem a ser, no geral, bem parecidas.
+                  </p>
                   <h4 id="lca">LCA</h4>
+                  <p className="text-start">
+                     Letra de Crédito Agricola, exatamente as mesmas caracteristicas de um LCA porém o crédito é voltado para financiamento do setor rural do país.
+                     Dinheiro captado normalmente é utilizado para conceder empréstimos a produtores rurais, que por sua vez investem em insumos e maquinário.
+                     Dessa forma sua rentabilidade vem dos juros pagos por esses produtores ao bancos.
+                  </p>
                   <h4 id="cri">CRI</h4>
+                  <p className="text-start"></p>
                   <h4 id="cra">CRA</h4>
-                  <p>cita os ativos e breve explicação.</p>
+                  <p className="text-start"></p>
                   <h3 id="comparativo">Comparativo</h3>
                   <div class="container">
                      <div class="row justify-content-center">
