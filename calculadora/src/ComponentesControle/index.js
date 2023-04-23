@@ -9,20 +9,21 @@ import RendaFixa from "../Componentes/RendaFixa";
 import RendaVariavel from "../Componentes/RendaVariavel"
 
 const ComponentesControle = [
-   {valor:"home", label:"Home", componentes:<Home/>},
-   {valor: "calculadoras", 
-    label:"Calculadoras", 
-    dropdown: true,
-      itens:[
-         {valor: "converteJuros", label:"Conversor de Juros", componentes:<ConverteJuros/>},
-         {valor: "simuladorJurosCompostos", label: "Simulador de Juros Compostos", componentes:<SimuladorJurosCompostos/>},
-         {valor:"rendimentoCdb", label:"Rendimento CDB", componentes: <RendimentoCdb/>},
-         {valor: "valorJusto", label:"Cálculo do Valor Justo", componentes: <ValorJusto/>}
+   { valor: "home", label: "Home", componentes: <Home /> },
+   {
+      valor: "calculadoras",
+      label: "Calculadoras",
+      dropdown: true,
+      itens: [
+         { valor: "converteJuros", label: "Conversor de Juros", componentes: <ConverteJuros /> },
+         { valor: "simuladorJurosCompostos", label: "Simulador de Juros Compostos", componentes: <SimuladorJurosCompostos /> },
+         { valor: "rendimentoCdb", label: "Rendimento CDB", componentes: <RendimentoCdb /> },
+         { valor: "valorJusto", label: "Cálculo do Valor Justo", componentes: <ValorJusto /> }
       ]
    },
-   {valor:"rendaFixa", label:"Renda Fixa", componentes: <RendaFixa/>},
-   {valor:"rendaVariavel", label:"Renda Variável", componentes: <RendaVariavel/>},
-   {valor:"artigos", label:"Artigos", componentes:<Artigos/>},
-   {valor:"livros", label:"Livros", componentes: <Livros/>}
+   { valor: "rendaFixa", label: "Renda Fixa", componentes: <RendaFixa /> },
+   { valor: "rendaVariavel", label: "Renda Variável", componentes: <RendaVariavel /> },
+   { valor: "artigos", label: "Artigos", componentes: <Artigos /> },
+   { valor: "livros", label: "Livros", componentes: <Livros /> }
 ]
 export default ComponentesControle;

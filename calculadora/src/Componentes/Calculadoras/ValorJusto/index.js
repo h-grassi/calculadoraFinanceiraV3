@@ -1,6 +1,6 @@
 const ValorJusto = () => {
    return(
-      <h3>ValorJusto</h3>
+      <h3>ValorJustoblabla</h3>
    );
 }
 export default ValorJusto;

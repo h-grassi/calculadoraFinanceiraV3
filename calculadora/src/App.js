@@ -8,8 +8,8 @@ import Footer from './Footer';
 
 function App() {
    const [abaOpcao, setAba] = useState("home");
-   const componenteSelecionado =  ComponentesControle.find(
-         opcao => opcao.valor === abaOpcao
+   const componenteSelecionado = ComponentesControle.find(
+      opcao => opcao.valor === abaOpcao
    )
    const itens = ComponentesControle.flatMap(opcao => opcao.itens || []);
    const componenteDropdown = itens.find(
@@ -17,12 +17,26 @@ function App() {
    )
    return (
       <>
-         <Navheader setAba = {setAba}/>
+         <Navheader setAba={setAba} />
          <div className="mx-3 text-center">
-            {componenteSelecionado && componenteSelecionado.componentes}
-            {componenteDropdown && componenteDropdown.componentes} 
+            <h1 className='mt-3'>
+               {componenteSelecionado && componenteSelecionado.label}
+               {componenteDropdown && componenteDropdown.label}
+            </h1>
+            <div className="row">
+               <div className="col-sm border">
+                  <p>coluna</p>
+               </div>
+               <div className="col-md-9 col-sm-12 ">
+                  {componenteSelecionado && componenteSelecionado.componentes}
+                  {componenteDropdown && componenteDropdown.componentes}
+               </div>
+               <div className="col-sm border">
+                  <p>coluna</p>
+               </div>
+            </div>
          </div>
-         <Footer/>
+         <Footer />
       </>
    )
 } export default App;
