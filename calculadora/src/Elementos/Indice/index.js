@@ -1,4 +1,4 @@
-const LinkLista = ({props}) =>{
+const Indice = ({props}) =>{
   return(
     <div className="justify-content-center">
       <nav aria-label="breadcrumb mx-auto">
@@ -13,4 +13,4 @@ const LinkLista = ({props}) =>{
     </div>
   )
 }
-export default LinkLista;
+export default Indice;
