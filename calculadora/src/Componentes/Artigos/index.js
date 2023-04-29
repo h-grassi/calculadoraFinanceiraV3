@@ -1,4 +1,4 @@
-import Cartao from "../../Elementos/Cartao";
+import {CartaoArtigos} from "../../Elementos/Cartao";
 import bancoRealista from '../../assets/bancoRealista.png'
 import piramide from '../../assets/piramide.png'
 import bovespa from '../../assets/bovespa.png'
@@ -30,7 +30,7 @@ const Artigos = () => {
          <p>Sugestões de temas ou artigos para compartilhar? Por favor <a href="#rodape">entre em contato</a>.</p>
          <div class="row m-2  justify-content-center">
             {artigosControle.map((artigo, index) => (
-               <Cartao
+               <CartaoArtigos
                   index={artigo.index}
                   titulo={artigo.titulo}
                   resumo={artigo.resumo}
