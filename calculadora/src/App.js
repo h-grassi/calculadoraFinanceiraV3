@@ -19,7 +19,7 @@ function App() {
       <>
          <Navheader setAba={setAba} />
          <div className="mx-3 text-center">
-            <h1 className='mt-3'>
+            <h1 className='mt-3' data-bs-theme="dark">
                {componenteSelecionado && componenteSelecionado.label}
                {componenteDropdown && componenteDropdown.label}
             </h1>

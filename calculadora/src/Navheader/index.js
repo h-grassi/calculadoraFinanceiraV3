@@ -25,7 +25,7 @@ const Navheader = ({ setAba }) => {
                <div className="collapse navbar-collapse text-sm" id="navresponsiva">
                   <ul className="navbar-nav p-0 list-group list-group-flush">
                      {ComponentesControle.map(opcao => (
-                        <li key={opcao.valor} className={`nav-item p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
+                        <li key={opcao.valor} className={`nav-item btn-outline-success p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
                            <button className="btn"
                               data-bs-target="#navresponsiva"
                               aria-controls="navresponsiva"
