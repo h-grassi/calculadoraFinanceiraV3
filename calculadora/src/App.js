@@ -24,7 +24,7 @@ function App() {
                {componenteDropdown && componenteDropdown.label}
             </h1>
             <div className="row">
-               <div className="col-sm border">
+               <div className="col-sm border p-0 m-0">
                   <p>coluna</p>
                </div>
                <div className="col-md-9 col-sm-12 ">

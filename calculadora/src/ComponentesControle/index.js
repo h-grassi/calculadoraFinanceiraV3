@@ -1,3 +1,4 @@
+//componenteControle
 import Artigos from "../Componentes/Artigos"
 import Home from "../Componentes/Home"
 import Livros from "../Componentes/Livros";
@@ -7,6 +8,8 @@ import RendimentoCdb from "../Componentes/Calculadoras/RendimentoCdb";
 import ValorJusto from "../Componentes/Calculadoras/ValorJusto";
 import RendaFixa from "../Componentes/RendaFixa";
 import RendaVariavel from "../Componentes/RendaVariavel"
+
+
 
 const ComponentesControle = [
    { valor: "home", label: "Home", componentes: <Home /> },
@@ -27,3 +30,4 @@ const ComponentesControle = [
    { valor: "livros", label: "Livros", componentes: <Livros /> }
 ]
 export default ComponentesControle;
+
