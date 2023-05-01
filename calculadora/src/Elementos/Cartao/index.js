@@ -1,4 +1,6 @@
 import { BsFillChatLeftQuoteFill } from "react-icons/bs";
+import { GrBitcoin } from "react-icons/gr";
+
 import './index.css'
 //para capa artigos
 const CartaoArtigos = (props) => {
@@ -19,33 +21,52 @@ const CartaoArtigos = (props) => {
 
 //para depoimentos
 
-const CartaoDepoimentos = () => {
+const CartaoDepoimentos = (props) => {
   return (
     <>
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col col-md-9 col-lg-7 col-xl-5">
-            <div className="card">
-              <div className="card-body">
-                <blockquote className="blockquote blockquote-custom bg-white px-3 pt-4">
-                  <div className="blockquote-custom-icon bg-success shadow-1-strong">
-                    <BsFillChatLeftQuoteFill />
-                  </div>
-                  <p className="mb-0 mt-2">
-                    "Deixa de ser vagabundo e vai estudar"
-                  </p>
-                  <footer className="blockquote-footer pt-4 mt-4 border-top">
-                    <cite title="Source Title">Meu pai</cite>
-                  </footer>
-                </blockquote>
-              </div>
+      <div className="col d-flex justify-content-center align-items-center cartao-depoimento">
+        <div className=" col-md-9 col-lg-7 col-xl-5 ">
+          <div className="card text-bg-light">
+            <div className="card-body text-bg-light">
+              <blockquote className="blockquote blockquote-custom text-bg-light px-3 pt-4">
+                <div className="blockquote-custom-icon bg-success shadow-1-strong">
+                  <BsFillChatLeftQuoteFill />
+                </div>
+                <p className="mb-0 mt-2">
+                  <em>
+                    {props.texto}
+                  </em>
+                </p>
+                <footer className="blockquote-footer pt-4 mt-4 border-top">
+                  <cite title="Source Title">{props.fonte}</cite>
+                </footer>
+              </blockquote>
             </div>
-
           </div>
         </div>
       </div>
-
     </>
   )
 }
-export { CartaoArtigos, CartaoDepoimentos };
+
+// ar cotação de moedas
+const CartaoCotacao = (props) => {
+  return (
+    <div className="col-sm-3 m-4">
+      <div className={`card mb-3 border border-2 text-bg-light ${props.className}`} >
+        <div className="card-body">
+          <div className="blockquote-custom-icon2">
+            {props.icone}
+          </div>
+          <p className="text-center"><strong>{props.titulo}</strong></p>
+          <p className="card-text" id={props.id}>{props.texto}</p>
+        </div>
+        <div className={`card-footer ${props.className}`}>
+          <p className="card-text p-0">{props.data}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export { CartaoArtigos, CartaoDepoimentos, CartaoCotacao };

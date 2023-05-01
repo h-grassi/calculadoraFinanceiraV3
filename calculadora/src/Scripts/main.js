@@ -1,3 +1,36 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+/* home*/
+/*cotacoes*/
+function Cotacoes() {
+  const [cotacoes, setCotacoes] = useState([]);
+
+  useEffect(() => {
+    async function fetchCotacoes() {
+      const response = await axios.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-USD');
+      setCotacoes(response.data);
+    }
+
+    const interval = setInterval(fetchCotacoes, 5000);
+    fetchCotacoes();
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const bitcoin = Number(cotacoes.BTCUSD?.ask).toLocaleString('en-EN', { style: 'currency', currency: 'USD' });
+  const dolar = Number(cotacoes.USDBRL?.bid).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  const euro = Number(cotacoes.EURBRL?.bid).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const dataBTCUSD = (new Date(cotacoes.BTCUSD?.create_date)).toLocaleString();
+  const dataUSDBRL = (new Date(cotacoes.USDBRL?.create_date)).toLocaleString();
+  const dataEURBRL = (new Date(cotacoes.EURBRL?.create_date)).toLocaleString();
+  return {
+    bitcoin: bitcoin, dataBTCUSD,
+    dolar: dolar, dataUSDBRL: dataUSDBRL,
+    euro: euro, dataEURBRL: dataEURBRL
+  };
+}
+
 /* calculadoras*/
 /*ConverteJuros*/
 function efetuarConversao(operacao) {
@@ -123,7 +156,9 @@ function calculaRendimentoReal() {
   }
 }
 
-export { efetuarConversao, simularJurosCompostos, calculaRendimentoReal };
+export { efetuarConversao, simularJurosCompostos, calculaRendimentoReal, Cotacoes };
+
+
 
 /* funções genéricas, não são exportadas, apenas usadas neste arquivo*/
 function conversaoTaxas(taxa, indexInicial, indexFinal) {
