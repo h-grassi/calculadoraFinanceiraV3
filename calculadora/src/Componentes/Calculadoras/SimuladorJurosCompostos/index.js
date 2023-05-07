@@ -29,7 +29,7 @@ const SimuladorJurosCompostos = () => {
             </div>
          </div>
          <p>Essa simulação mostra que investir R$ 300,00 não vai mudar sua vida, mas que investir esse valor regularmente muda completamente.
-            Não só financeiramente, mas sua forma de ver a vida, te motiva a trabalhar para ganhar mais para investir mais e mais rápido viver de renda.
+            Não só financeiramente, mas na forma de ver a vida, te motiva a trabalhar para ganhar mais para investir mais e mais rápido viver de renda.
          </p>
          <p>
             Mas mais importante que isso, te ensina que as melhores coisas da vida se conquista a longo prazo.
