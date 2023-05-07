@@ -1,5 +1,4 @@
 import { BsFillChatLeftQuoteFill } from "react-icons/bs";
-import { GrBitcoin } from "react-icons/gr";
 
 import './index.css'
 //para capa artigos

@@ -5,9 +5,9 @@ import Livros from "../Componentes/Livros";
 import ConverteJuros from "../Componentes/Calculadoras/ConverteJuros";
 import SimuladorJurosCompostos from "../Componentes/Calculadoras/SimuladorJurosCompostos";
 import RendimentoCdb from "../Componentes/Calculadoras/RendimentoCdb";
-import ValorJusto from "../Componentes/Calculadoras/ValorJusto";
 import RendaFixa from "../Componentes/RendaFixa";
-import RendaVariavel from "../Componentes/RendaVariavel"
+import RendaVariavel from "../Componentes/RendaVariavel";
+import ComparaRentabilidade from "../Componentes/Calculadoras/ComparaRentabiliade";
 
 
 
@@ -21,7 +21,7 @@ const ComponentesControle = [
          { valor: "converteJuros", label: "Conversor de Juros", componentes: <ConverteJuros /> },
          { valor: "simuladorJurosCompostos", label: "Simulador de Juros Compostos", componentes: <SimuladorJurosCompostos /> },
          { valor: "rendimentoCdb", label: "Rendimento CDB", componentes: <RendimentoCdb /> },
-         { valor: "valorJusto", label: "Cálculo do Valor Justo", componentes: <ValorJusto /> }
+         { valor: "comparaRentabilidade", label: "Comparar Rentabiliades", componentes: <ComparaRentabilidade /> }
       ]
    },
    { valor: "rendaFixa", label: "Renda Fixa", componentes: <RendaFixa /> },

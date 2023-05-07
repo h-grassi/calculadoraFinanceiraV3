@@ -82,11 +82,11 @@ function simularJurosCompostos() {
   } else {
     if (document.getElementById("juroAnual").checked === true) {
       const conversaoTempo = (Math.pow((1 + taxaJuros / 100), (1 / 12)) - 1);
-      parte1 = vlInicial * (Math.pow(1 + (taxaJuros / 100), tMes / 12));
+      parte1 = calcJuroComposto(vlInicial, taxaJuros, tMes / 12);
       parte2 = vlMes * ((Math.pow((1 + conversaoTempo), tMes) - 1) / conversaoTempo);
 
     } else if (document.getElementById("juroMensal").checked === true) {
-      parte1 = vlInicial * (Math.pow(1 + (taxaJuros / 100), tMes));
+      parte1 = calcJuroComposto(vlInicial, taxaJuros, tMes);
       parte2 = vlMes * ((Math.pow((1 + taxaJuros / 100), tMes) - 1) / (taxaJuros / 100));
     }
     const totalInvestido = vlInicial + (vlMes * tMes);
@@ -109,7 +109,7 @@ function simularJurosCompostos() {
   }
 }
 
-/*Calcula CDB*/
+/*Calcula CDB*///revisar, comtêm erros
 function calculaRendimentoReal() {
 
   const VlInvestido = Number(document.getElementById("vlInvestido").value)
@@ -156,7 +156,54 @@ function calculaRendimentoReal() {
   }
 }
 
-export { efetuarConversao, simularJurosCompostos, calculaRendimentoReal, Cotacoes };
+/* comparar rentabilidades */
+function comparaRent() {
+  const vlAporte = Number(document.getElementById("vlAporte").value)
+  const tempo = Number(document.getElementById("tAnos").value)
+  let removeTag1 = document.getElementById("resultados");
+  let removeTag2 = document.getElementById("erro");
+
+  if (vlAporte === 0 || tempo === 0) {
+    if (removeTag1) {
+      removeTag1.remove();
+    }
+    addHTML("card", "p", "erro", "Valor e tempo não podem estar em branco");
+
+  } else {
+    //primeira taxa
+    const juro1 = Number((document.getElementById("juro1").value));
+    const juro2 = Number((document.getElementById("juro2").value));
+    let rendimento1;
+    let rendimento2;
+    if (document.getElementById("txAnual1").checked === true) {
+      rendimento1 = calcJuroComposto(vlAporte, juro1, tempo)
+    } else {
+      const converteJuro = conversaoTaxas(juro1, 'M', 'A')
+      rendimento2 = calcJuroComposto(vlAporte, converteJuro, tempo)
+    }
+    //segunda taxa
+    if (document.getElementById("txAnual2").checked === true) {
+      rendimento2 = calcJuroComposto(vlAporte, juro2, tempo)
+    } else {
+      const converteJuro = conversaoTaxas(juro2, 'M', 'A')
+      rendimento2 = calcJuroComposto(vlAporte, converteJuro, tempo)
+    }
+    const rendFormat1 = rendimento1.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    const rendFormat2 = rendimento2.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    const vlDiferenca = (Math.abs(rendimento1 - rendimento2)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+    console.log(rendFormat1, rendFormat2);
+    console.log(vlDiferenca)
+    if (removeTag2) {
+      removeTag2.remove();
+    }
+    addHTML("card", "div", "resultados", '')
+    addHTML("resultados", "p", "rend1", "Rendimento do primeiro caso: <b>" + rendFormat1 + "</b>")
+    addHTML("resultados", "p", "rend2", "Rendimento do segundo caso: <b>" + rendFormat2 + "</b>")
+    addHTML("resultados", "p", "dif", "Diferença de <b>" + vlDiferenca + "</b>")
+  }
+}
+
+export { efetuarConversao, simularJurosCompostos, calculaRendimentoReal, Cotacoes, comparaRent };
 
 
 
@@ -181,6 +228,11 @@ function conversaoTaxas(taxa, indexInicial, indexFinal) {
   const expoente = expoentes[indexInicial][indexFinal];
   const conversaoJuro = (Math.pow((1 + vlTaxa / 100), expoente) - 1) * 100;
   return conversaoJuro;
+}
+
+function calcJuroComposto(valor, juro, tempo) {
+  const resultado = valor * (Math.pow(1 + (juro / 100), tempo));
+  return resultado;
 }
 
 function addHTML(idTagPai, tagFilho, idNome, tagConteudo) {
