@@ -1,9 +1,7 @@
 //Todos os formulários nesse arquivo
 const Form1 = (props) => {
-
   return (
-    <>
-      <form className="m-2">
+    <div className="m-2">
         <label className="form-label"><strong>{props.label}</strong></label>
         <div class="input-group mx-auto input-group-sm" style={props.style}>
           <input className="form-control form-control-sm"
@@ -13,16 +11,14 @@ const Form1 = (props) => {
           />
           <div className={`input-group-text ${props.className}`}>{props.texto}</div>
         </div>
-      </form>
-    </>
+    </div>
   )
 }//utilizado em ConverteJuros, símbolo a direita do input
 
 const Form2 = (props) => {
   const texto = props.texto ? <div className="input-group-text">{props.texto}</div> : null;
   return (
-    <>
-      <form className="m-2 mx-auto">
+    <div className="m-2">
         <label className="form-label"><strong>{props.label}</strong></label>
         <div class="input-group mx-auto input-group-sm" style={props.style}>
           <>{texto}</>
@@ -32,8 +28,7 @@ const Form2 = (props) => {
             value={props.value}
           />
         </div>
-      </form>
-    </>
+    </div>
   )
 }// símbolo a esquerda do input
 
