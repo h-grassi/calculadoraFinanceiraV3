@@ -5,6 +5,8 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import Navheader from './Navheader';
 import ComponentesControle from './ComponentesControle';
 import Footer from './Footer';
+import { Analytics } from '@vercel/analytics/react';
+
 
 function App() {
    const [abaOpcao, setAba] = useState("home");
@@ -37,6 +39,7 @@ function App() {
             </div>
          </div>
          <Footer />
+         <Analytics />
       </>
    )
 } export default App;
