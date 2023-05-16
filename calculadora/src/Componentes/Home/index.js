@@ -3,7 +3,7 @@ import { CartaoCotacao, CartaoDepoimentos } from "../../Elementos/Cartao";
 import { GrBitcoin } from "react-icons/gr";
 import { HiCurrencyDollar } from "react-icons/hi"
 import { HiCurrencyEuro } from "react-icons/hi2"
-
+import { Link } from 'react-router-dom';
 import { Cotacoes } from "../../Scripts/main.js"
 
 
@@ -19,7 +19,11 @@ const Home = () => {
     <>
       <div className="container">
         <div className="row">
-          <div className="col">1-Apresentação</div>
+          <div className="col">1-Apresentação
+            <button>
+              <Link to="/Livros">aaah</Link>
+            </button>
+          </div>
         </div>
         <div className="row">
           <div className="col">2-Cotações</div>

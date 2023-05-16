@@ -1,43 +1,23 @@
-import React, { useState } from 'react';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import React from 'react';
 import Navheader from './Navheader';
-import ComponentesControle from './ComponentesControle';
+
+import './index.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Footer';
 import { Analytics } from '@vercel/analytics/react';
+import { BrowserRouter } from "react-router-dom";
+import { Rotas } from './ComponentesControle';
 
 
 function App() {
-   const [abaOpcao, setAba] = useState("home");
-   const componenteSelecionado = ComponentesControle.find(
-      opcao => opcao.valor === abaOpcao
-   )
-   const itens = ComponentesControle.flatMap(opcao => opcao.itens || []);
-   const componenteDropdown = itens.find(
-      item => item.valor === abaOpcao
-   )
+
    return (
       <>
-         <Navheader setAba={setAba} />
-         <div className="mx-3 text-center">
-            <h1 className='mt-3' data-bs-theme="dark">
-               {componenteSelecionado && componenteSelecionado.label}
-               {componenteDropdown && componenteDropdown.label}
-            </h1>
-            <div className="row">
-               <div className="col-sm border p-0 m-0">
-                  <p>coluna</p>
-               </div>
-               <div className="col-md-9 col-sm-12 ">
-                  {componenteSelecionado && componenteSelecionado.componentes}
-                  {componenteDropdown && componenteDropdown.componentes}
-               </div>
-               <div className="col-sm border">
-                  <p>coluna</p>
-               </div>
-            </div>
-         </div>
+         <BrowserRouter>
+            <Navheader />
+            <Rotas />
+         </BrowserRouter>
          <Footer />
          <Analytics />
       </>

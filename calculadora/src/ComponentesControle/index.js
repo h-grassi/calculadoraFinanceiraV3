@@ -1,4 +1,7 @@
 //componenteControle
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
 import Artigos from "../Componentes/Artigos"
 import Home from "../Componentes/Home"
 import Livros from "../Componentes/Livros";
@@ -9,25 +12,54 @@ import RendaFixa from "../Componentes/RendaFixa";
 import RendaVariavel from "../Componentes/RendaVariavel";
 import ComparaRentabilidade from "../Componentes/Calculadoras/ComparaRentabiliade";
 
-
-
 const ComponentesControle = [
-   { valor: "home", label: "Home", componentes: <Home /> },
+   { valor: "home", label: "Home", componente: <Home />, link: "/" },
    {
       valor: "calculadoras",
       label: "Calculadoras",
       dropdown: true,
       itens: [
-         { valor: "converteJuros", label: "Conversor de Juros", componentes: <ConverteJuros /> },
-         { valor: "simuladorJurosCompostos", label: "Simulador de Juros Compostos", componentes: <SimuladorJurosCompostos /> },
-         { valor: "rendimentoCdb", label: "Rendimento CDB", componentes: <RendimentoCdb /> },
-         { valor: "comparaRentabilidade", label: "Comparar Rentabiliades", componentes: <ComparaRentabilidade /> }
+         { valor: "converteJuros", label: "Conversor de Juros", componente: <ConverteJuros />, link: "/converteJuros" },
+         { valor: "simuladorJurosCompostos", label: "Simulador de Juros Compostos", componente: <SimuladorJurosCompostos />, link: "/simuladorJurosCompostos" },
+         { valor: "rendimentoCdb", label: "Rendimento CDB", componente: <RendimentoCdb />, link: "rendimentoCdb" },
+         { valor: "comparaRentabilidade", label: "Comparar Rentabiliades", componente: <ComparaRentabilidade />, link: "/comparaRentabilidade" }
       ]
    },
-   { valor: "rendaFixa", label: "Renda Fixa", componentes: <RendaFixa /> },
-   { valor: "rendaVariavel", label: "Renda Variável", componentes: <RendaVariavel /> },
-   { valor: "artigos", label: "Artigos", componentes: <Artigos /> },
-   { valor: "livros", label: "Livros", componentes: <Livros /> }
+   { valor: "rendaFixa", label: "Renda Fixa", componente: <RendaFixa />, link: "/rendaFixa" },
+   { valor: "rendaVariavel", label: "Renda Variável", componente: <RendaVariavel />, link: "/rendaVariavel" },
+   { valor: "artigos", label: "Artigos", componente: <Artigos />, link: "/artigos" },
+   { valor: "livros", label: "Livros", componente: <Livros />, link: "/livros" }
 ]
-export default ComponentesControle;
+
+
+
+const Rotas = () => {
+
+   return (
+      <div className="row m-3 text-center">
+         <div className="col-sm border p-0 m-0">
+            <p>coluna</p>
+         </div>
+         <div className="col-md-9 col-sm-12 ">
+            <Routes>
+               {ComponentesControle.map((pagina) => (
+                  <>
+                     <Route path={pagina.link} element={pagina.componente} />
+                     {pagina.dropdown && (
+                        pagina.itens.map(submenu => (
+                           <Route path={submenu.link} element={submenu.componente} />
+                        ))
+                     )}
+                  </>
+               ))}
+            </Routes>
+         </div>
+         <div className="col-sm border p-0 m-0">
+            <p>coluna</p>
+         </div>
+      </div>
+   )
+}
+
+export { Rotas, ComponentesControle }
 
