@@ -1,9 +1,9 @@
 import { ComponentesControle } from "../ComponentesControle";
 import logo from '../assets/logoTeste2.svg'
 import { BiCaretDown } from "react-icons/bi";
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const Navheader = () => {
+   const navigate = useNavigate();
    return (
       <>
          <nav className="navbar navbar-expand-sm bg-success bg-opacity-75">
@@ -29,30 +29,34 @@ const Navheader = () => {
                         <li key={opcao.valor} className="nav-item btn-outline-success p-0 m-0 dropdown">
                            <button className="btn"
                               data-bs-toggle="dropdown"
-                              data-bs-target="#navresponsiva"
-                              aria-controls="navresponsiva"
                               aria-label="Toggle navigation"
                               onClick={(e) => { e.stopPropagation() }}
                            >{opcao.label}<BiCaretDown />
                            </button>
                            <ul className="dropdown-menu border-success" data-bs-toggle="dropdown">
-                              {opcao.itens.map(submenu => (
-                                 <li key={submenu.valor}>
-                                    <Link className="btn btn-outline-success dropdown-item"
-                                       to={submenu.link}>{submenu.label}</Link>
-                                 </li>
-                              ))}
+                              <li>
+                                 {opcao.itens.map(submenu => (
+                                       <button className="btn btn-outline-success dropdown-item" 
+                                       onClick={()=>navigate(submenu.link)}
+                                       data-bs-toggle="collapse"
+                                       >
+                                          {submenu.label}
+                                       </button>
+                                 ))}
+                              </li>
                            </ul>
                         </li>
                         :
                         <li key={opcao.valor} className="nav-item btn-outline-success p-0 m-0">
-                           <Link className="btn"
+                           <button className="btn "
+                              data-bs-toggle="collapse"
                               data-bs-target="#navresponsiva"
                               aria-controls="navresponsiva"
+                              aria-expanded="false"
                               aria-label="Toggle navigation"
-                              to={opcao.link}>
+                              onClick={()=>navigate(opcao.link)}>
                               {opcao.label}
-                           </Link>
+                           </button>
                         </li>
                      ))}
                   </ul>
