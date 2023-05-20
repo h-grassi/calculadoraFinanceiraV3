@@ -41,7 +41,7 @@ const Home = () => {
             </div>
           ))} />
         </div>
-        <div className="row justify-content-center">
+        <div className="row m-5 justify-content-center">
           <h2>Cotações</h2>
           <CartaoCotacao
             icone={<GrBitcoin size={30} style={{ color: 'gold' }} />}
