@@ -5,7 +5,6 @@ import { Routes, Route } from "react-router-dom";
 import Artigos from "../Componentes/Artigos"
 import Home from "../Componentes/Home"
 import Livros from "../Componentes/Livros";
-import Sobre from "../Componentes/Sobre";
 import ConverteJuros from "../Componentes/Calculadoras/ConverteJuros";
 import SimuladorJurosCompostos from "../Componentes/Calculadoras/SimuladorJurosCompostos";
 import RendimentoCdb from "../Componentes/Calculadoras/RendimentoCdb";
@@ -29,8 +28,7 @@ const ComponentesControle = [
    { valor: "rendaFixa", label: "Renda Fixa", componente: <RendaFixa />, link: "/rendaFixa" },
    { valor: "rendaVariavel", label: "Renda Variável", componente: <RendaVariavel />, link: "/rendaVariavel" },
    { valor: "artigos", label: "Artigos", componente: <Artigos />, link: "/artigos" },
-   { valor: "livros", label: "Livros", componente: <Livros />, link: "/livros" },
-   { valor: "sobre", label: "Sobre", componente: <Sobre />, link: "/sobre" }
+   { valor: "livros", label: "Livros", componente: <Livros />, link: "/livros" }
 ]
 
 
@@ -38,11 +36,11 @@ const ComponentesControle = [
 const Rotas = () => {
 
    return (
-      <div className="row m-3 text-center p-0 m-0">
+      <div className="row m-3 text-center">
          <div className="col-sm border p-0 m-0">
             <p>coluna</p>
          </div>
-         <div className="col-md-9 col-sm-12 p-0 m-0">
+         <div className="col-md-9 col-sm-12 ">
             <Routes>
                {ComponentesControle.map((pagina) => (
                   <>
