@@ -118,7 +118,7 @@ function calculaRendimentoReal() {
   const pegaDataInicial = document.getElementById("dataInicial").value;
   const pegaDataFinal = document.getElementById("dataFinal").value;
 
-  if (pegaDataInicial == 0 || pegaDataFinal == 0 || VlInvestido == 0 || vlTaxa == 0) {
+  if (pegaDataInicial === 0 || pegaDataFinal === 0 || VlInvestido === 0 || vlTaxa === 0) {
     alert("preencha os campos!");
     return 0;
   } else {

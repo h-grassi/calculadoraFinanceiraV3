@@ -1,4 +1,4 @@
-import { Form1, Form2, Form3 } from "../../../Elementos/Formularios"
+import { Form1, Form2 } from "../../../Elementos/Formularios"
 import { comparaRent } from "../../../Scripts/main";
 
 const ComparaRentabilidade = () => {

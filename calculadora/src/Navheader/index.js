@@ -1,8 +1,9 @@
-import ComponentesControle from "../ComponentesControle";
+import { ComponentesControle } from "../ComponentesControle";
 import logo from '../assets/logoTeste2.svg'
 import { BiCaretDown } from "react-icons/bi";
-
-const Navheader = ({ setAba }) => {
+import { useNavigate } from "react-router-dom";
+const Navheader = () => {
+   const navigate = useNavigate();
    return (
       <>
          <nav className="navbar navbar-expand-sm bg-success bg-opacity-75">
@@ -24,30 +25,38 @@ const Navheader = ({ setAba }) => {
             <div className="container-fluid">
                <div className="collapse navbar-collapse text-sm" id="navresponsiva">
                   <ul className="navbar-nav p-0 list-group list-group-flush">
-                     {ComponentesControle.map(opcao => (
-                        <li key={opcao.valor} className={`nav-item btn-outline-success p-0 m-0 ${opcao.dropdown ? ' dropdown' : ''}`}>
+                     {ComponentesControle.map(opcao => (opcao.dropdown ?
+                        <li key={opcao.valor} className="nav-item btn-outline-success p-0 m-0 dropdown">
                            <button className="btn"
+                              data-bs-toggle="dropdown"
+                              aria-label="Toggle navigation"
+                              onClick={(e) => { e.stopPropagation() }}
+                           >{opcao.label}<BiCaretDown />
+                           </button>
+                           <ul className="dropdown-menu border-success" data-bs-toggle="dropdown">
+                              <li>
+                                 {opcao.itens.map(submenu => (
+                                       <button className="btn btn-outline-success dropdown-item" 
+                                       onClick={()=>navigate(submenu.link)}
+                                       data-bs-toggle="collapse"
+                                       >
+                                          {submenu.label}
+                                       </button>
+                                 ))}
+                              </li>
+                           </ul>
+                        </li>
+                        :
+                        <li key={opcao.valor} className="nav-item btn-outline-success p-0 m-0">
+                           <button className="btn "
+                              data-bs-toggle="collapse"
                               data-bs-target="#navresponsiva"
                               aria-controls="navresponsiva"
+                              aria-expanded="false"
                               aria-label="Toggle navigation"
-                              data-bs-toggle={`${opcao.dropdown ? 'dropdown' : 'collapse'}`}
-                              onClick={opcao.dropdown ? (e) => e.stopPropagation() : () => setAba(opcao.valor)}>
+                              onClick={()=>navigate(opcao.link)}>
                               {opcao.label}
-                              {opcao.dropdown ? (<BiCaretDown />) : ''}
                            </button>
-                           {opcao.dropdown && (
-                              <ul className="dropdown-menu border-success" data-bs-toggle="dropdown">
-                                 {opcao.itens.map(submenu => (
-                                    <li key={submenu.valor}>
-                                       <button className="btn btn-outline-success dropdown-item"
-                                          data-bs-toggle="collapse"
-                                          data-bs-target="#navresponsiva"
-                                          onClick={() => setAba(submenu.valor)}>{submenu.label}
-                                       </button>
-                                    </li>
-                                 ))}
-                              </ul>
-                           )}
                         </li>
                      ))}
                   </ul>
