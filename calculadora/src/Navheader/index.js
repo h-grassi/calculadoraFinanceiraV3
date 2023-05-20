@@ -36,12 +36,12 @@ const Navheader = () => {
                            <ul className="dropdown-menu border-success" data-bs-toggle="dropdown">
                               <li>
                                  {opcao.itens.map(submenu => (
-                                    <button className="btn btn-outline-success dropdown-item"
-                                       onClick={() => navigate(submenu.link)}
+                                       <button className="btn btn-outline-success dropdown-item" 
+                                       onClick={()=>navigate(submenu.link)}
                                        data-bs-toggle="collapse"
-                                    >
-                                       {submenu.label}
-                                    </button>
+                                       >
+                                          {submenu.label}
+                                       </button>
                                  ))}
                               </li>
                            </ul>
@@ -54,7 +54,7 @@ const Navheader = () => {
                               aria-controls="navresponsiva"
                               aria-expanded="false"
                               aria-label="Toggle navigation"
-                              onClick={() => navigate(opcao.link)}>
+                              onClick={()=>navigate(opcao.link)}>
                               {opcao.label}
                            </button>
                         </li>
