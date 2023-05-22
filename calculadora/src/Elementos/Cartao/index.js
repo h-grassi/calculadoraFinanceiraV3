@@ -1,11 +1,14 @@
 import { BsFillChatLeftQuoteFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 import './index.css'
 //para capa artigos
 const CartaoArtigos = (props) => {
+  const navigate = useNavigate();
   return (
     <div className="col-sm-3 mb-3">
-      <button className="btn card p-0 w-100 h-100 bg-light ">
+      <button className="btn card p-0 w-100 h-100 bg-light "
+        onClick={() => navigate(props.link)}>
         <img src={props.src} className="card-img-top" alt={props.alt} />
         <div className="card-body p-0">
           <h5 className="text-center"><strong>{props.titulo}</strong></h5>

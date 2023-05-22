@@ -1,8 +1,8 @@
-//componenteControle
+//import estrutural
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
-import Artigos from "../Componentes/Artigos"
+//import páginas principais
+import ArtigosMenu from "../Componentes/ArtigosMenu"
 import Home from "../Componentes/Home"
 import Livros from "../Componentes/Livros";
 import ConverteJuros from "../Componentes/Calculadoras/ConverteJuros";
@@ -11,6 +11,9 @@ import RendimentoCdb from "../Componentes/Calculadoras/RendimentoCdb";
 import RendaFixa from "../Componentes/RendaFixa";
 import RendaVariavel from "../Componentes/RendaVariavel";
 import ComparaRentabilidade from "../Componentes/Calculadoras/ComparaRentabiliade";
+import Sobre from "../Componentes/Sobre";
+import { RotasArtigos } from "./ArtigosControle";
+
 
 const ComponentesControle = [
    { valor: "home", label: "Home", componente: <Home />, link: "/" },
@@ -27,10 +30,10 @@ const ComponentesControle = [
    },
    { valor: "rendaFixa", label: "Renda Fixa", componente: <RendaFixa />, link: "/rendaFixa" },
    { valor: "rendaVariavel", label: "Renda Variável", componente: <RendaVariavel />, link: "/rendaVariavel" },
-   { valor: "artigos", label: "Artigos", componente: <Artigos />, link: "/artigos" },
-   { valor: "livros", label: "Livros", componente: <Livros />, link: "/livros" }
+   { valor: "artigosMenu", label: "Artigos", componente: <ArtigosMenu />, link: "/artigos" },
+   { valor: "livros", label: "Livros", componente: <Livros />, link: "/livros" },
+   { valor: "sobre", label: "Sobre", componente: <Sobre />, link: "/sobre" }
 ]
-
 
 
 const Rotas = () => {
@@ -41,6 +44,7 @@ const Rotas = () => {
             <p>coluna</p>
          </div>
          <div className="col-md-9 col-sm-12 ">
+            <RotasArtigos />
             <Routes>
                {ComponentesControle.map((pagina) => (
                   <>

@@ -3,6 +3,7 @@ import { efetuarConversao } from "../../../Scripts/main.js"
 const ConverteJuros = () => {
    return (
       <>
+         <h1>Conversor de juros</h1>
          <p className="lead">calculadora que transforma a taxa de juros com o período de tempo desejado.</p>
          <p>Útil para comparar rentabilidade entre ativos e ter uma noção real do quão abusivos são os juros de cartão de crédito por exemplo.</p>
          <h5>Preencha os campos e calcule:</h5>

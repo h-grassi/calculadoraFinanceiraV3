@@ -4,6 +4,7 @@ import { comparaRent } from "../../../Scripts/main";
 const ComparaRentabilidade = () => {
   return (
     <>
+      <h1>Comparar Rentabilidades</h1>
       <p className="lead">Ferramenta que exibe a diferença de valores ao se investir em diferentes taxas de juros.</p>
       <p>Esse cálculo mostra que no longo prazo, pequenas diferenças percentuais podem resultar em rentabiliades totalmente diefentes.</p>
       <h5>Preencha os campos e calcule:</h5>
