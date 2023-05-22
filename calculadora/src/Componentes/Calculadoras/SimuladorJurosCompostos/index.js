@@ -3,6 +3,7 @@ import { simularJurosCompostos } from "../../../Scripts/main.js"
 const SimuladorJurosCompostos = () => {
    return (
       <>
+         <h1>Simulador de Juros Compostos</h1>
          <p className="lead">calculadora que simula rendimentos de aplicações a longo prazo.</p>
          <p>Essa ferramenta tem o objetivo de mostrar o poder do longo prazo na ação dos juros compostos e como você pode
             se beneficiar disso.

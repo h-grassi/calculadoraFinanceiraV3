@@ -1,6 +1,6 @@
 import { ComponentesControle } from "../ComponentesControle";
-import logo from '../assets/logoTeste2.svg'
 import { BiCaretDown } from "react-icons/bi";
+import { RiHandCoinFill } from "react-icons/ri"
 import { useNavigate } from "react-router-dom";
 const Navheader = () => {
    const navigate = useNavigate();
@@ -8,7 +8,7 @@ const Navheader = () => {
       <>
          <nav className="navbar navbar-expand-sm bg-success bg-opacity-75">
             <div className="container-fluid">
-               <img src={logo} alt="Logo" style={{ width: '100px', height: '100px' }} />
+               <h1 className="logo m-1">Investidor do Zero <RiHandCoinFill /></h1>
                <button className="navbar-toggler"
                   type="button"
                   data-bs-toggle="collapse"
@@ -36,12 +36,12 @@ const Navheader = () => {
                            <ul className="dropdown-menu border-success" data-bs-toggle="dropdown">
                               <li>
                                  {opcao.itens.map(submenu => (
-                                       <button className="btn btn-outline-success dropdown-item" 
-                                       onClick={()=>navigate(submenu.link)}
+                                    <button className="btn btn-outline-success dropdown-item"
+                                       onClick={() => navigate(submenu.link)}
                                        data-bs-toggle="collapse"
-                                       >
-                                          {submenu.label}
-                                       </button>
+                                    >
+                                       {submenu.label}
+                                    </button>
                                  ))}
                               </li>
                            </ul>
@@ -54,7 +54,7 @@ const Navheader = () => {
                               aria-controls="navresponsiva"
                               aria-expanded="false"
                               aria-label="Toggle navigation"
-                              onClick={()=>navigate(opcao.link)}>
+                              onClick={() => navigate(opcao.link)}>
                               {opcao.label}
                            </button>
                         </li>

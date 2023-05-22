@@ -4,6 +4,7 @@ import { calculaRendimentoReal } from "../../../Scripts/main";
 const rendimentoCdb = () => {
   return (
     <>
+      <h1>CDB Rendimento Real</h1>
       <p className="lead">calculadora que simula rendimentos de real de um CDB pré-fixado.</p>
 
       <p>

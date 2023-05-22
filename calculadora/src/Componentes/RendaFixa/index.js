@@ -16,6 +16,7 @@ const RendaFixa = () => {
    ]
    return (
       <>
+         <h1>Guia de Renda Fixa</h1>
          <p className="lead">Todo investimento onde é possível calcular o quanto seu dinheiro terá rendido no dia do vencimento da aplicação.</p>
          <Indice props={listaProps} />
          <h3 id="introducao">Introdução</h3>

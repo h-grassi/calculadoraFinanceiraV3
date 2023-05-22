@@ -17,6 +17,7 @@ const Home = () => {
   const cotacoes = Cotacoes();
   return (
     <>
+      <h1>Investidor do Zero</h1>
       <div className="container">
         <div className="row">
           <div className="col">1-Apresentação
