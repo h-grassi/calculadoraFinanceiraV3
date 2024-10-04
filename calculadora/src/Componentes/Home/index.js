@@ -20,13 +20,6 @@ const Home = () => {
       <h1>Investidor do Zero</h1>
       <div className="container">
         <div className="row">
-          <div className="col">1-Apresentação
-            <button>
-              <Link to="/Livros">aaah</Link>
-            </button>
-          </div>
-        </div>
-        <div className="row">
           <div className="col">2-Cotações</div>
         </div>
         <div className="row">
