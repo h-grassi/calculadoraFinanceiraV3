@@ -179,7 +179,7 @@ function comparaRent() {
       rendimento1 = calcJuroComposto(vlAporte, juro1, tempo)
     } else {
       const converteJuro = conversaoTaxas(juro1, 'M', 'A')
-      rendimento2 = calcJuroComposto(vlAporte, converteJuro, tempo)
+      rendimento1 = calcJuroComposto(vlAporte, converteJuro, tempo)
     }
     //segunda taxa
     if (document.getElementById("txAnual2").checked === true) {
@@ -191,8 +191,6 @@ function comparaRent() {
     const rendFormat1 = rendimento1.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     const rendFormat2 = rendimento2.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
     const vlDiferenca = (Math.abs(rendimento1 - rendimento2)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-    console.log(rendFormat1, rendFormat2);
-    console.log(vlDiferenca)
     if (removeTag2) {
       removeTag2.remove();
     }
