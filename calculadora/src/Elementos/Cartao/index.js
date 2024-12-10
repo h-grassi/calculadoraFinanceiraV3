@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import './index.css'
 //para capa artigos
-const CartaoArtigos = (props) => {
+const CartaoLinks = (props) => {
   const navigate = useNavigate();
   return (
     <div className="col-sm-3 mb-3">
@@ -16,6 +16,18 @@ const CartaoArtigos = (props) => {
             <p className="card-text">{props.resumo}</p>
           </figcaption >
         </div>
+      </button>
+    </div>
+  )
+}
+
+const CartaoImagens = (props) => {
+  const navigate = useNavigate();
+  return (
+    <div className="col-sm-3 mb-3">
+      <button className="btn card p-0 w-100 h-100 bg-light "
+        onClick={() => navigate(props.link)}>
+        <img src={props.src} className="card-img-top" alt={props.alt} />
       </button>
     </div>
   )
@@ -71,4 +83,4 @@ const CartaoCotacao = (props) => {
   )
 }
 
-export { CartaoArtigos, CartaoDepoimentos, CartaoCotacao };
+export { CartaoLinks, CartaoDepoimentos, CartaoCotacao, CartaoImagens };

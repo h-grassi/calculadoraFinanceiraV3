@@ -1,8 +1,7 @@
-import { CartaoArtigos } from "../../Elementos/Cartao";
+import { CartaoLinks } from "../../Elementos/Cartao";
 import { ArtigosControle } from "../../ComponentesControle/ArtigosControle";
 
 const ArtigosMenu = () => {
-
    return (
       <>
          <h1>Artigos</h1>
@@ -10,7 +9,7 @@ const ArtigosMenu = () => {
          <p>Sugestões de temas ou artigos para compartilhar? Por favor <a href="#rodape">entre em contato</a>.</p>
          <div class="row m-2  justify-content-center">
             {ArtigosControle.map((artigo) => (
-               <CartaoArtigos
+               <CartaoLinks
                   index={artigo.index}
                   titulo={artigo.titulo}
                   resumo={artigo.resumo}
