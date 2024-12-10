@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 //import páginas principais
 import ArtigosMenu from "../Componentes/ArtigosMenu"
 import Home from "../Componentes/Home"
-import Livros from "../Componentes/Livros";
+import Livros from "../Componentes/LivrosMenu";
 import ConverteJuros from "../Componentes/Calculadoras/ConverteJuros";
 import SimuladorJurosCompostos from "../Componentes/Calculadoras/SimuladorJurosCompostos";
 import RendimentoCdb from "../Componentes/Calculadoras/RendimentoCdb";

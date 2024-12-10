@@ -9,23 +9,14 @@ import { Cotacoes } from "../../Scripts/main.js"
 
 const Home = () => {
   const carroselDepoimentos = [
-    { item: <CartaoDepoimentos texto='"Deixa de ser vagabundo e vai estudar"' fonte="Meu pai" /> },
-    { item: <CartaoDepoimentos texto='"Legal, mas que tal fazer um concurso público?"' fonte="Tia Lúcia" /> },
-    { item: <CartaoDepoimentos texto='"Para de fazer barulho seu chinelão!"' fonte="Meu vizinho" /> },
-    { item: <CartaoDepoimentos texto='"Tu não vale nada!"' fonte="Minha ex" /> }
+    { item: <CartaoDepoimentos texto='"Promissor, me intressei"' fonte="Colega de trabalho" /> },
+    { item: <CartaoDepoimentos texto='"Super esclarecedor."' fonte="Meu vizinho" /> },
+    { item: <CartaoDepoimentos texto='"Muito educativo e fácil de compreender"' fonte="Primo Carlos." /> }
   ];
   const cotacoes = Cotacoes();
   return (
     <>
       <h1>Investidor do Zero</h1>
-      <div className="container">
-        <div className="row">
-          <div className="col">2-Cotações</div>
-        </div>
-        <div className="row">
-          <div className="col">3-sugestões (links para outras páginas)</div>
-        </div>
-      </div>
       <div className="row ">
         <div className="col">
           <h3 className="mt-5">Depoimentos:</h3>

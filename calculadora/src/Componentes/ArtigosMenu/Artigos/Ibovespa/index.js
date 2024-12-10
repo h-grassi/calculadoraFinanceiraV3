@@ -1,6 +1,5 @@
-import graficoazul from '../../../../assets/graficoazul.jpg'
+import graficoazul from '../../../../assets/Artigos/graficoazul.jpg'
 import Indice from '../../../../Elementos/Indice';
-//import './index.css'
 
 const Ibovespa = () => {
   const listaProps = [

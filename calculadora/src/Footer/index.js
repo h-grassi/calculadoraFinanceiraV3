@@ -23,14 +23,14 @@ const Footer = () => {
                <a className="btn btn-outline-light btn-floating m-1" target="_blank" href={dispositivo()} role="button">
                   <IoLogoWhatsapp />
                </a>
-               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href="https://github.com/h-grassi/calculadoraFinanceiraV3http://localhost:3001/livros" role="button">
+               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href="https://github.com/h-grassi/calculadoraFinanceiraV3" role="button">
                   <IoLogoGithub />
                </a>
-               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href="#!" role="button">
+               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href="https://www.linkedin.com/in/henrique-c-grassi123" role="button">
                   <IoLogoLinkedin />
                </a>
                <div className="p-3">
-                  © 2023 Copyright, site idealizado e criado por Henrique Colombo Grassi
+                  © 2024 Copyright, site idealizado e criado por Henrique Colombo Grassi
                   <p>Esta página tem como finalidade educar e ajudar pessoas que estão começando do zero.
                      Nada dito aqui é uma recomendação, e não me responsabilizo pelas escolhas de terceiros.
                   </p>
