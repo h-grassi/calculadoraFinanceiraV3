@@ -14,19 +14,19 @@ const Footer = () => {
       <>
          <footer id="rodape" className="footer  bg-dark text-center text-white">
             <div className="container justify-content-center pt-4 pb-0">
-               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href="https://instagram.com/h_grassi" role="button">
+               <a className="btn btn-outline-light btn-floating m-1" target="_blank" rel="noreferrer" href="https://instagram.com/h_grassi" role="button">
                   <IoLogoInstagram />
                </a>
                <a className="btn btn-outline-light btn-floating m-1" href="mailto:h.grassi.hcg@gmail.com" role="button">
                   <IoMdMail />
                </a>
-               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href={dispositivo()} role="button">
+               <a className="btn btn-outline-light btn-floating m-1" target="_blank" rel="noreferrer" href={dispositivo()} role="button">
                   <IoLogoWhatsapp />
                </a>
-               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href="https://github.com/h-grassi/calculadoraFinanceiraV3" role="button">
+               <a className="btn btn-outline-light btn-floating m-1" target="_blank" rel="noreferrer" href="https://github.com/h-grassi/calculadoraFinanceiraV3" role="button">
                   <IoLogoGithub />
                </a>
-               <a className="btn btn-outline-light btn-floating m-1" target="_blank" href="https://www.linkedin.com/in/henrique-c-grassi123" role="button">
+               <a className="btn btn-outline-light btn-floating m-1" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/henrique-c-grassi123" role="button">
                   <IoLogoLinkedin />
                </a>
                <div className="p-3">

@@ -20,7 +20,7 @@ const CartaoLinks = (props) => {
     </div>
   )
 }
-
+//para capa livros
 const CartaoImagens = (props) => {
   const navigate = useNavigate();
   return (

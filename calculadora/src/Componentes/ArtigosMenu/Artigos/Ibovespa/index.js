@@ -17,7 +17,7 @@ const Ibovespa = () => {
       </div>
       <Indice props={listaProps} />
       <p className="text-body-secondarylead">Para encontrar as informações completas e detalhadas sugiro da uma olhada também no site institucional da B3 &nbsp;
-      <a href="https://www.b3.com.br/pt_br/b3/institucional/quem-somos/" target="_blank">aqui</a>.</p>
+      <a href="https://www.b3.com.br/pt_br/b3/institucional/quem-somos/" target="_blank" rel="noreferrer">aqui</a>.</p>
       <h5 id="vs">Bovespa Vs Ibovespa</h5>
       <p className="text-start">Para começar é importante difenciar o significado de Bovespa para Ibovespa. o primeiro é o nome da empresa, 
       também conhecida como B3, que é a bolsa de valores brasileira, o segundo é o indice que representa uma carteira teórica de ativos usada para resumir o cenário atual do mercado.</p>

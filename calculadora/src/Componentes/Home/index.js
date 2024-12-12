@@ -3,7 +3,6 @@ import { CartaoCotacao, CartaoDepoimentos } from "../../Elementos/Cartao";
 import { GrBitcoin } from "react-icons/gr";
 import { HiCurrencyDollar } from "react-icons/hi"
 import { HiCurrencyEuro } from "react-icons/hi2"
-import { Link } from 'react-router-dom';
 import { Cotacoes } from "../../Scripts/main.js"
 
 

@@ -9,7 +9,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { BrowserRouter } from "react-router-dom";
 import { Rotas } from './ComponentesControle';
 
-
 function App() {
 
    return (
