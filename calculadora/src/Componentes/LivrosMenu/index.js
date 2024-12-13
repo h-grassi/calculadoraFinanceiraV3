@@ -16,6 +16,8 @@ const LivrosMenu = () => {
                />
             ))}
          </div>
+         <h2>*PÁGINA EM CONTRUÇÃO*</h2>
+         <p>Links para os livros não disponíveis no momento</p>
       </>
 
    )
