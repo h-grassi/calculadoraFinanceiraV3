@@ -3,7 +3,6 @@ import { CartaoCotacao, CartaoDepoimentos } from "../../Elementos/Cartao";
 import { GrBitcoin } from "react-icons/gr";
 import { HiCurrencyDollar } from "react-icons/hi"
 import { HiCurrencyEuro } from "react-icons/hi2"
-import { Link } from 'react-router-dom';
 import { Cotacoes } from "../../Scripts/main.js"
 
 
@@ -18,6 +17,7 @@ const Home = () => {
     <>
       <h1>Investidor do Zero</h1>
       <div className="row ">
+        <p>Site para sem fins lucrativos, apenas com propósito educativo e para testar meus conhecimentos na área de programação.</p>
         <div className="col">
           <h3 className="mt-5">Depoimentos:</h3>
           <Carrosel item={carroselDepoimentos.map(itens => (

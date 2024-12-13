@@ -114,8 +114,9 @@ const RendaFixa = () => {
          <h3>Principais Ativos:</h3>
          <h4 id="tesouro">Tesouro Direto</h4>
          <p className="text-start">Forma do governo se financiar via emissão de dívida, são os ativos mais seguros do mercado já que em caso de crise
-            o Estado é a última instituição a quebrar. Por esse motivo todo mundo deveria começar no mundo dos investimentos por aqui.
+            o Estado é a última instituição a quebrar. Por esse motivo todo mundo deveria começar no mundo dos investimentos por aqui. Estão disponíveis atrelados a inflação, a taxa Selic e também com taxas pré-fixadas.
          </p>
+         <p>Para saber mais sobre o tesouro direto acesse o link do site oficial <a href="https://www.tesourodireto.com.br/">aqui.</a></p>
          <h4 id="cdb">CDB</h4>
          <p className="text-start">
             Certificado de Depósito Bancário, forma mais simples de explicar é dizendo que o jogo virou, dessa vez
@@ -163,6 +164,7 @@ const RendaFixa = () => {
             que na maioria dos casos são compostos por CRAs.
          </p>
          <h3 id="comparativo">Comparativo</h3>
+         <p>Tabela informativa resumindo em quais ativos à incidência da tabela regressiva de imposto de renda e quais tem a proteção do FGC.</p>
          <div class="container">
             <div class="row justify-content-center">
                <div class="col-lg-4">

@@ -9,8 +9,8 @@ const RendaVariavel = () => {
    return (
       <>
          <h1>Guia de Renda Variável</h1>
-         <p className="lead"> Preciso de ideias</p>
          <Indice props={listaProps} />
+         <h2>*PÁGINA EM CONTRUÇÃO*</h2>
       </>
    )
 }

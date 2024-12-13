@@ -1,7 +1,7 @@
 import { BsFillChatLeftQuoteFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-
 import './index.css'
+
 //para capa artigos
 const CartaoLinks = (props) => {
   const navigate = useNavigate();
@@ -20,12 +20,12 @@ const CartaoLinks = (props) => {
     </div>
   )
 }
-
+//para capa livros
 const CartaoImagens = (props) => {
   const navigate = useNavigate();
   return (
-    <div className="col-sm-3 mb-3">
-      <button className="btn card p-0 w-100 h-100 bg-light "
+    <div className="col-sm-3 mb-3 justify-content-center d-flex">
+      <button className="btn card p-0 w-75 h-75 bg-light "
         onClick={() => navigate(props.link)}>
         <img src={props.src} className="card-img-top" alt={props.alt} />
       </button>

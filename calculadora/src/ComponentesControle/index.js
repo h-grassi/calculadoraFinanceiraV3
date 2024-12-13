@@ -40,8 +40,7 @@ const Rotas = () => {
 
    return (
       <div className="row m-3 text-center">
-         <div className="col-sm border p-0 m-0">
-            <p>coluna</p>
+         <div className="col-sm  p-0 m-0">
          </div>
          <div className="col-md-9 col-sm-12 ">
             <RotasArtigos />
@@ -58,8 +57,7 @@ const Rotas = () => {
                ))}
             </Routes>
          </div>
-         <div className="col-sm border p-0 m-0">
-            <p>coluna</p>
+         <div className="col-sm  p-0 m-0">
          </div>
       </div>
    )
